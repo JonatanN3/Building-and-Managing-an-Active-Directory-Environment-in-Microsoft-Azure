@@ -112,13 +112,13 @@ This step ensured that the server was deployed with a supported Windows Server o
 <p>
 Steps:
   
-- Opened the Networking tab during the dc-1 VM creation.
-- Selected Active-Directory-VNet as the virtual network.
+- Open the Networking tab during the dc-1 VM creation.
+- Select Active-Directory-VNet as the virtual network.
 - Choose default subnet.
-- Assigned a public IP address for remote access.
+- Assign a public IP address for remote access.
 - Set the network security group options.
-- Allowed RDP (3389) inbound access.
-- Reviewed the settings before deployment.
+- Allow RDP (3389) inbound access.
+- Review the settings before deployment.
 
 Explanation:
 This placed dc-1 on the lab network and allowed it to be managed remotely through Remote Desktop.
@@ -136,8 +136,8 @@ Steps:
 - Open the primary IP configuration (ipconfig1).
 - Change the Private IP allocation setting from Dynamic to Static.
 - Confirm the assigned private IP address (10.0.0.4).
-- Verify the public IP address association for remote access.
-- Saved the configuration changes.
+- Verify the public IP address for remote access.
+- Save the configuration changes.
 
 Explanation:
 This step ensures that the DC-1 domain controller maintains a consistent private IP address, which is critical for reliable DNS services and proper communication within the Active Directory environment.
@@ -151,14 +151,14 @@ This step ensures that the DC-1 domain controller maintains a consistent private
 <p>
 Steps:
   
-- Started another Create virtual machine process.
-- Selected the Active-Directory-Lab resource group.
-- Entered the virtual machine name Client-1.
+- Start another Create virtual machine process.
+- Select the Active-Directory-Lab resource group.
+- Enter the virtual machine name Client-1.
 - Chose the same region as dc-1.
-- Reviewed the basic configuration settings.
+- Review the basic configuration settings.
 
 Explanation:
-This machine was created to simulate a workstation that would later connect to and join the domain.
+This machine is created to simulate a workstation that will later connect to and join the domain.
 
 <h2>Client-1 Operating System and Credentials</h2>
 
@@ -168,15 +168,15 @@ This machine was created to simulate a workstation that would later connect to a
 <p>
 Step:
   
-- Selected Windows 11 Pro as the image.
-- Confirmed the VM architecture.
-- Selected the VM size for the lab.
-- Entered the administrator username.
-- Entered and confirmed the administrator password.
-- Continued through the setup wizard.
+- Select Windows 11 Pro as the image.
+- Confirm the VM architecture.
+- Select the VM size for the lab.
+- Enter the administrator username.
+- Enter and confirm the administrator password.
+- Continue through the setup wizard.
 
 Explanation:
-This step ensured that the client computer was deployed with a supported Windows operating system that will later be connected to the DC-1 domain controller as part of the Active Directory environment.
+This step varifies that the client computer is deployed with a supported Windows operating system that will later be connected to the DC-1 domain controller as part of the Active Directory environment.
 
 <h2>Configure Networking for Client-1</h2>
 
@@ -188,14 +188,14 @@ Step:
   
 - Opened the Networking tab during the Client-1 setup.
 - Selected Active-Directory-VNet.
-- Kept the default subnet.
-- Assigned a public IP address.
-- Configured the network security settings.
-- Allowed RDP (3389) inbound access.
-- Continued with the deployment.
+- Keep the default subnet.
+- Assign a public IP address.
+- Configure the network security settings.
+- Allow RDP (3389) inbound access.
+- Continue with the deployment.
 
 Explanation:
-This ensured that Client-1 was on the same virtual network as dc-1 so both machines could communicate internally.
+This confirms that Client-1 is on the same virtual network as dc-1 so both machines could communicate internally.
 
 <h2>Verify Both Virtual Machines Are Running</h2>
 
@@ -205,12 +205,12 @@ This ensured that Client-1 was on the same virtual network as dc-1 so both machi
 <p>
 Step:
   
-- Returned to the Virtual machines page.
-- Verified that dc-1 and Client-1 appeared in the list.
-- Confirmed both virtual machines showed a Running status.
+- Return to the Virtual machines page.
+- Verify that dc-1 and Client-1 shows on the list.
+- Confirm both virtual machines shows a Running status.
 
 Explanation:
- This confirmed that both systems were deployed successfully and were ready for configuration and testing.
+ This confirms that both systems are deployed successfully and are ready for configuration and testing.
 
 <h2> Connect to dc-1 with Remote Desktop</h2>
 
@@ -220,12 +220,12 @@ Explanation:
 <p>
 Step:
 
-- Opened the dc-1 virtual machine details in Azure.
-- Located the public IP address for dc-1.
-- Opened Remote Desktop Connection on the local computer.
-- Entered the public IP address.
-- Entered the administrator credentials.
-- Started the remote session.
+- Open the dc-1 virtual machine details in Azure.
+- Locate the public IP address for dc-1.
+- Open Remote Desktop Connection on the local computer.
+- Enter the public IP address.
+- Type the administrator credentials.
+- Launch the remote desktop.
 
 Explanation:
  Remote Desktop provides administrative access to the server so configuration tasks can be completed directly inside the VM.
@@ -238,10 +238,10 @@ Explanation:
 <p>
 Step:
   
-- Signed in to dc-1 through Remote Desktop.
-- Waited for the Windows Server desktop to load.
-- Confirmed that Server Manager opened successfully.
-- Verified the server was ready for further setup.
+- Sign in to dc-1 through Remote Desktop.
+- Wait for the Windows Server desktop to load.
+- Confirm that Server Manager opened successfully.
+- Verify the server was ready for further setup.
 
 Explanation:
  Server Manager is the main administrative tool used to install server roles and manage Windows Server services.
@@ -252,12 +252,12 @@ Explanation:
 <img width="1536" height="1024" alt="Lab19" src="https://github.com/user-attachments/assets/89318695-0a7c-4dae-8979-74b88d413de3" />
 </p>
 <p>
-Step-by-step
+Step:
   
-- Opened Windows Defender Firewall with Advanced Security on dc-1.
-- Reviewed the firewall profile settings.
-- Adjusted the firewall configuration for the lab environment.
-- Confirmed the changes were applied.
+- Open Windows Defender Firewall with Advanced Security on dc-1.
+- Review the firewall profile settings.
+- Adjust the firewall configuration for the lab environment.
+- Confirm the changes were applied.
 
 Explanation:
  In a lab environment, firewall settings are sometimes adjusted to make connectivity testing easier between systems. This helps avoid blocked communication during setup and troubleshooting
@@ -270,11 +270,11 @@ Explanation:
 <p>
 Step:
   
-- Logged into Client-1.
-- Opened Windows PowerShell.
-- Entered the following command:
+- Log into Client-1.
+- Open Windows PowerShell.
+- Type the following command:
   ping 10.0.0.4
-- Ran the command to test connectivity to the domain controller.
+- Run the command to test connectivity to the domain controller.
 
 Explanation:
  This test checks whether the client machine can communicate with the server over the private network.
@@ -287,12 +287,12 @@ Explanation:
 <p>
 Step:
   
-- Confirmed that the ping to 10.0.0.4 was successful.
-- Entered the following command:
+- Confirm that the ping to 10.0.0.4 was successful.
+- Type the following command:
   ipconfig /all
-- Reviewed the network adapter details.
-- Verified the client IP configuration.
-- Confirmed the DNS server setting pointed to 10.0.0.4.
+- Review the network adapter details.
+- Verify the client IP configuration.
+- Confirm the DNS server setting pointed to 10.0.0.4.
 
 Explanation:
  This final verification confirmed that Client-1 could communicate with dc-1 and that the DNS settings were correctly configured to point to the domain controller. That completed the infrastructure setup required before deploying Active Directory.
