@@ -262,9 +262,6 @@ Step-by-step
 Explanation:
  In a lab environment, firewall settings are sometimes adjusted to make connectivity testing easier between systems. This helps avoid blocked communication during setup and troubleshooting
 
-</p>
-<br />
-
 <h2> Begin Connectivity Testing from Client-1</h2>
 
 <p>
@@ -281,9 +278,6 @@ Step:
 
 Explanation:
  This test checks whether the client machine can communicate with the server over the private network.
-
-</p>
-<br />
 
 <h2>Verify Network Connectivity and DNS Settings</h2>
 
