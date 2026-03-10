@@ -2,7 +2,7 @@
 <img width="270" height="187" alt="image" src="https://github.com/user-attachments/assets/c3457b89-c543-4076-9b48-f19872a657e8" />
 
 <h1>Building Active Directory Infrastructure in Microsoft Azure</h1>
-This tutorial focused on establishing the necessary infrastructure in Microsoft Azure for an Active Directory deployment. This included creating the required cloud resources, configuring a virtual network, deploying virtual machines, and confirming proper network communication between systems before implementing Active Directory Domain Services.<br />
+This tutorial focuses on establishing the necessary infrastructure in Microsoft Azure for an Active Directory deployment. This includes creating the required cloud resources, configuring a virtual network, deploying virtual machines, and confirming proper network communication between systems before implementing Active Directory Domain Services.<br />
 
 <h2>Environments and Technologies Used</h2>
 
@@ -25,9 +25,9 @@ This tutorial focused on establishing the necessary infrastructure in Microsoft 
 <p>
 Steps:
   
-- Sign in to the Azure portal.
+- Open in to the Azure portal.
 - Locate Resource groups from the Azure services menu.
-- Select Create to begin building a new resource group for the lab environment.
+- Click Create to begin building a new resource group for the lab environment.
 
 Explanation:
  A resource group is used to organize related Azure resources in one location. Creating it first helps keep all lab components structured and easier to manage.
@@ -39,11 +39,11 @@ Explanation:
 <p>
 Steps:
   
-- Selected the appropriate Azure subscription.
-- Entered the resource group name Active-Directory-Lab.
-- Chose the region Canada Central.
-- Reviewed the settings.
-- Continued to create the resource group.
+- Select the appropriate Azure subscription.
+- Click the resource group name Active-Directory-Lab.
+- Choose the region Canada Central.
+- Review the settings.
+- Continue to create the resource group.
 
 Explanation:
 This created a dedicated container for all resources used in the lab, including virtual machines and networking components.
@@ -56,13 +56,13 @@ This created a dedicated container for all resources used in the lab, including 
 <p>
 Step:
 
-- Opened Virtual networks in Azure.
-- Selected Create.
-- Assigned the network to the Active-Directory-Lab resource group.
-- Entered the virtual network name Active-Directory-VNet.
-- Confirmed the region matched the resource group.
-- Reviewed the default IP address space and subnet settings.
-- Clicked Create.
+- Launch Virtual networks in Azure.
+- Select Create.
+- Assign the network to the Active-Directory-Lab resource group.
+- Enter the virtual network name Active-Directory-VNet.
+- Verify the region matched the resource group.
+- Review the default IP address space and subnet settings.
+- Click Create.
 
 Explanation:
  The virtual network allows the domain controller and client machine to communicate privately inside Azure. This is required for domain communication and DNS resolution.
@@ -76,12 +76,12 @@ Explanation:
 <p>
 Steps:
   
-- Opened Virtual machines in Azure.
-- Clicked Create virtual machine.
-- Selected the Active-Directory-Lab resource group.
-- Entered the VM name dc-1.
-- Selected the deployment region.
-- Reviewed the basic configuration settings.
+- Open Virtual machines in Azure.
+- Click Create virtual machine.
+- Select the Active-Directory-Lab resource group.
+- Enter the VM name dc-1.
+- Select the deployment region. (The same as the resource group)
+- Review the basic configuration settings.
 
 Explanation:
  This virtual machine was created to serve as the main server for the lab. It would later be promoted to a Domain Controller.
@@ -94,12 +94,12 @@ Explanation:
 <p>
 Step:
   
-- Selected Windows Server 2022 Datacenter Azure Edition as the image.
-- Confirmed the VM architecture.
-- Selected the VM size for the lab.
-- Entered the administrator username.
-- Entered and confirmed the administrator password.
-- Continued through the setup wizard.
+- Select Windows Server 2022 Datacenter Azure Edition as the image.
+- Confirm the VM architecture.
+- Select the VM size for the lab.
+- Type the administrator username.
+- Enter and confirm the administrator password.
+- Continue through the setup wizard.
 
 Explanation:
 This step ensured that the server was deployed with a supported Windows Server operating system capable of running Active Directory Domain Services.
