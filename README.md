@@ -52,40 +52,81 @@ This created a dedicated container for all resources used in the lab, including 
 
 <p>
 <img width="1536" height="1024" alt="Lab4" src="https://github.com/user-attachments/assets/ab329317-3b3d-481a-a61c-db40ebda6689" />
-
 </p>
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
-<br />
+Step:
+
+- Opened Virtual networks in Azure.
+- Selected Create.
+- Assigned the network to the Active-Directory-Lab resource group.
+- Entered the virtual network name Active-Directory-VNet.
+- Confirmed the region matched the resource group.
+- Reviewed the default IP address space and subnet settings.
+- Clicked Create.
+
+Explanation:
+ The virtual network allows the domain controller and client machine to communicate privately inside Azure. This is required for domain communication and DNS resolution.
+
+<h2> Begin Creating the Domain Controller VM</h2>
+
 <p>
   
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img width="1536" height="1024" alt="Lab5" src="https://github.com/user-attachments/assets/a45e8255-76a3-4ed1-a028-6df06d804b44" />
 </p>
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
-<br />
+Steps:
+  
+- Opened Virtual machines in Azure.
+- Clicked Create virtual machine.
+- Selected the Active-Directory-Lab resource group.
+- Entered the VM name dc-1.
+- Selected the deployment region.
+- Reviewed the basic configuration settings.
+
+Explanation:
+ This virtual machine was created to serve as the main server for the lab. It would later be promoted to a Domain Controller.
+
+<h2>Configure dc-1 Operating System and Credentials</h2>
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img width="1536" height="1024" alt="Lab6" src="https://github.com/user-attachments/assets/bf194cfa-9233-47c5-a9bf-9a39fd46111d" />
 </p>
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
-<br />
+Step:
+  
+- Selected Windows Server 2022 Datacenter Azure Edition as the image.
+- Confirmed the VM architecture.
+- Selected the VM size for the lab.
+- Entered the administrator username.
+- Entered and confirmed the administrator password.
+- Continued through the setup wizard.
+
+Explanation:
+This step ensured that the server was deployed with a supported Windows Server operating system capable of running Active Directory Domain Services.
+
+<h2>Configure Networking for dc-1</h2>
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img width="1536" height="1024" alt="Lab7" src="https://github.com/user-attachments/assets/b633b24b-eefb-444e-87f2-24fada2892c8" />
 </p>
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
-<br />
+Steps:
+  
+- Opened the Networking tab during the dc-1 VM creation.
+- Selected Active-Directory-VNet as the virtual network.
+- Kept the default subnet.
+- Assigned a public IP address for remote access.
+- Set the network security group options.
+- Allowed RDP (3389) inbound access.
+- Reviewed the settings before deployment.
 
+Explanation:
+This placed dc-1 on the lab network and allowed it to be managed remotely through Remote Desktop.
+
+<h2>Begin Creating the Client VM</h2>
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img width="1536" height="1024" alt="Lab8" src="https://github.com/user-attachments/assets/35ffd7b1-fcb3-43fc-b62e-251070cc6e87" />
 </p>
 <p>
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
