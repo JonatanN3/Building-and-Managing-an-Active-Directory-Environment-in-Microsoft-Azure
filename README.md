@@ -46,7 +46,7 @@ Steps:
 - Continue to create the resource group.
 
 Explanation:
-This created a dedicated container for all resources used in the lab, including virtual machines and networking components.
+This creates a dedicated container for all resources used in the lab, including virtual machines and networking components.
 
 <h2>Create the Virtual Network</h2>
 
@@ -60,7 +60,7 @@ Step:
 - Select Create.
 - Assign the network to the Active-Directory-Lab resource group.
 - Enter the virtual network name Active-Directory-VNet.
-- Verify the region matched the resource group.
+- Verify the region is the same as the resource group.
 - Review the default IP address space and subnet settings.
 - Click Create.
 
@@ -80,11 +80,11 @@ Steps:
 - Click Create virtual machine.
 - Select the Active-Directory-Lab resource group.
 - Enter the VM name dc-1.
-- Select the deployment region. (The same as the resource group)
+- Select the deployment region Canada Central. (The same as the resource group)
 - Review the basic configuration settings.
 
 Explanation:
- This virtual machine was created to serve as the main server for the lab. It would later be promoted to a Domain Controller.
+ This virtual machine was created to serve as the main server for the lab. It will later be promoted to a Domain Controller.
 
 <h2>Configure dc-1 Operating System and Credentials</h2>
 
@@ -95,7 +95,7 @@ Explanation:
 Step:
   
 - Select Windows Server 2022 Datacenter Azure Edition as the image.
-- Confirm the VM architecture.
+- Confirm the VM architecture is set to x64.
 - Select the VM size for the lab.
 - Type the administrator username.
 - Enter and confirm the administrator password.
@@ -114,7 +114,7 @@ Steps:
   
 - Opened the Networking tab during the dc-1 VM creation.
 - Selected Active-Directory-VNet as the virtual network.
-- Kept the default subnet.
+- Choose default subnet.
 - Assigned a public IP address for remote access.
 - Set the network security group options.
 - Allowed RDP (3389) inbound access.
@@ -131,12 +131,12 @@ This placed dc-1 on the lab network and allowed it to be managed remotely throug
 <p>
 Steps:
   
-- Navigated to the Network Interface settings for the DC-1 virtual machine.
-- Selected IP configurations to modify the network settings.
-- Opened the primary IP configuration (ipconfig1).
-- Changed the Private IP allocation setting from Dynamic to Static.
-- Verified the assigned private IP address (10.0.0.4).
-- Confirmed the public IP address association for remote access.
+- Navigate to the Network Interface settings for the DC-1 virtual machine.
+- Select IP configurations to modify the network settings.
+- Open the primary IP configuration (ipconfig1).
+- Change the Private IP allocation setting from Dynamic to Static.
+- Confirm the assigned private IP address (10.0.0.4).
+- Verify the public IP address association for remote access.
 - Saved the configuration changes.
 
 Explanation:
