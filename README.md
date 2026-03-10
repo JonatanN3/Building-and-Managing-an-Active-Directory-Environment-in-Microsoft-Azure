@@ -129,17 +129,36 @@ This placed dc-1 on the lab network and allowed it to be managed remotely throug
 <img width="1536" height="1024" alt="Lab8" src="https://github.com/user-attachments/assets/35ffd7b1-fcb3-43fc-b62e-251070cc6e87" />
 </p>
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
-<br />
+Steps:
+  
+- Started another Create virtual machine process.
+- Selected the Active-Directory-Lab resource group.
+- Entered the virtual machine name Client-1.
+- Chose the same region as dc-1.
+- Reviewed the basic configuration settings.
+
+Explanation:
+This machine was created to simulate a workstation that would later connect to and join the domain.
+
+<h2>Configure Networking for Client-1</h2>
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img width="1536" height="1024" alt="Lab10" src="https://github.com/user-attachments/assets/e9daa5f8-aa22-4291-92ee-c2916acd2d72" />
 </p>
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
-<br />
+Step:
+  
+- Opened the Networking tab during the Client-1 setup.
+- Selected Active-Directory-VNet.
+- Kept the default subnet.
+- Assigned a public IP address.
+- Configured the network security settings.
+- Allowed RDP (3389) inbound access.
+- Continued with the deployment.
+
+Explanation:
+This ensured that Client-1 was on the same virtual network as dc-1 so both machines could communicate internally.
+
 
 
 <p>
