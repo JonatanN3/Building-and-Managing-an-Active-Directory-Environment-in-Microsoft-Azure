@@ -84,7 +84,7 @@ Steps:
 - Review the basic configuration settings.
 
 Explanation:
- This virtual machine is to serve as the main server for the lab. It will later be promoted to a Domain Controller.
+ This virtual machine is to serve as the main server for the lab. It will be promoted to a Domain Controller.
 
 <h2>Configure dc-1 Operating System and Credentials</h2>
 
