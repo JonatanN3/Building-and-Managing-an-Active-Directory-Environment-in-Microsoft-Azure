@@ -31,7 +31,7 @@ Steps:
 - Click Create to begin building a new resource group for the lab environment.
 
 Explanation:
- A resource group is used to organize related Azure resources in one location. Creating it first helps keep all lab components structured and easier to manage.
+  A resource group is used to organize related Azure resources in one location. Creating it first helps keep all lab components structured and easier to manage.
 
 <h2>Create the Resource Group</h2>
 
@@ -103,7 +103,7 @@ Step:
 - Continue through the setup wizard.
 
 Explanation:
-This step ensured that the server was deployed with a supported Windows Server operating system capable of running Active Directory Domain Services.
+This step confirms that the server is deployed with a supported Windows Server operating system capable of running Active Directory Domain Services.
 
 <h2>Configure Networking for dc-1</h2>
 
@@ -122,7 +122,7 @@ Steps:
 - Review the settings before deployment.
 
 Explanation:
-This placed dc-1 on the lab network and allowed it to be managed remotely through Remote Desktop.
+This ensures that DC-1 is connected to the lab environment and can be remotely accessed and managed via Remote Desktop.
 
 <h2>Configure DC-1 Private IP Address</h2>
 
@@ -277,8 +277,8 @@ Step:
   ping 10.0.0.4
 - Run the command to test connectivity to the domain controller.
 
-Explanation:
- This test checks whether the client machine can communicate with the server over the private network.
+Explanation: 
+ This test verifies network connectivity between Client-1 and the domain controller (DC-1). Successful ping responses confirm that the client machine can reach the server across the private network.
 
 <h2>Verify Network Connectivity and DNS Settings</h2>
 
