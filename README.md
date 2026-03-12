@@ -1,5 +1,6 @@
 <p align="center">
-<img width="290" height="174" alt="image" src="https://github.com/user-attachments/assets/789be7b5-2294-4b38-8f34-8456e5447c0e" />
+<img width="335" height="150" alt="image" src="https://github.com/user-attachments/assets/bf6c6284-578a-44a2-9d99-0945a141d086" />
+
 
 <h1>Building Active Directory Infrastructure in Microsoft Azure</h1>
 This tutorial focuses on establishing the necessary infrastructure in Microsoft Azure for an Active Directory deployment. This includes creating the required cloud resources, configuring a virtual network, deploying virtual machines, and confirming proper network communication between systems before implementing Active Directory Domain Services.<br />
