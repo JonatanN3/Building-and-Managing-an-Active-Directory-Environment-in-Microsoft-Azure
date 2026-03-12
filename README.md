@@ -295,7 +295,7 @@ Step:
 - Confirm the DNS server setting pointed to 10.0.0.4.
 
 Explanation:
- This final verification confirmed that Client-1 could communicate with dc-1 and that the DNS settings were correctly configured to point to the domain controller. That completed the infrastructure setup required before deploying Active Directory.
+ This final verification guarantees that Client-1 could communicate with dc-1 and that the DNS settings were correctly configured to point to the domain controller. That completes the infrastructure setup required before deploying Active Directory.
 
 <h2>Summary</h2>
 
