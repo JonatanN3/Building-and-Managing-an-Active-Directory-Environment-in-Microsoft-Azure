@@ -300,7 +300,7 @@ Explanation:
 
 <h2>Summary</h2>
 
-By the end of this phase, the Azure environment was fully prepared for the Active Directory deployment. The resource group and virtual network were created, the domain controller and client virtual machines were deployed, remote access was configured, and connectivity between systems was successfully verified. This completed the foundational infrastructure needed for the next part of the lab.
+This stage focused on building the foundational Azure infrastructure required for the Active Directory lab. After creating the resource group and virtual network, both the domain controller and client virtual machines were deployed and configured. Remote Desktop access was tested and network connectivity between the machines was successfully validated, completing the infrastructure setup for the next phase.
 
 
 
