@@ -201,8 +201,7 @@ This confirms that Client-1 is on the same virtual network as dc-1 so both machi
 
 <h2>Verify Both Virtual Machines Are Running</h2>
 
-<p>
-<img width="1536" height="1024" alt="Lab13" src="https://github.com/user-attachments/assets/434dd4d7-2b83-4b28-82eb-2c5b2124019c" />
+<p><img width="1536" height="862" alt="Lab11" src="https://github.com/user-attachments/assets/2827c71e-8751-45a7-b67f-9eaa79eadc2f" />
 </p>
 <p>
 Step:
@@ -217,7 +216,7 @@ Explanation:
 <h2> Connect to dc-1 with Remote Desktop</h2>
 
 <p>
-<img width="1536" height="1024" alt="Lab14" src="https://github.com/user-attachments/assets/481b5ee5-596d-40b1-92cf-27926146a439" />
+<img width="1536" height="857" alt="Lab14" src="https://github.com/user-attachments/assets/7afbc595-33d5-425f-95e4-b22bd0914690" />
 </p>
 <p>
 Step:
