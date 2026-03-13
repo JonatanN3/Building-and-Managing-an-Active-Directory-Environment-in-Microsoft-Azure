@@ -22,7 +22,7 @@ This tutorial focuses on establishing the necessary infrastructure in Microsoft 
 
 <h2>Open Resource Groups in Azure</h2>
 
-<img width="1536" height="1024" alt="Lab1" src="https://github.com/user-attachments/assets/dd1f9fed-7847-4542-b265-1f1e0406da9c" />
+<img width="1536" height="808" alt="Lab1" src="https://github.com/user-attachments/assets/10ef2fe8-9079-4ceb-aa6a-35ab6405fb09" />
 </p>
 <p>
 Steps:
@@ -36,7 +36,7 @@ Explanation:
 
 <h2>Create the Resource Group</h2>
 
-<img width="1536" height="1024" alt="Lab2" src="https://github.com/user-attachments/assets/3f6e249f-1ce2-4950-877d-8ecbc5f0b832" />
+<img width="1536" height="810" alt="Lab2" src="https://github.com/user-attachments/assets/8934d166-7e95-4b85-9004-757912121816" />
 </p>
 <p>
 Steps:
@@ -52,8 +52,8 @@ This creates a dedicated container for all resources used in the lab, including 
 
 <h2>Create the Virtual Network</h2>
 
-<p>
-<img width="1536" height="1024" alt="Lab4" src="https://github.com/user-attachments/assets/ab329317-3b3d-481a-a61c-db40ebda6689" />
+<p><img width="1536" height="802" alt="Lab4" src="https://github.com/user-attachments/assets/fd65a346-5a87-4320-a7cb-066a851c47b5" />
+
 </p>
 <p>
 Step:
@@ -73,7 +73,7 @@ Explanation:
 
 <p>
   
-<img width="1536" height="1024" alt="Lab5" src="https://github.com/user-attachments/assets/a45e8255-76a3-4ed1-a028-6df06d804b44" />
+<img width="1536" height="870" alt="560603103-a45e8255-76a3-4ed1-a028-6df06d804b44" src="https://github.com/user-attachments/assets/3d6f272c-7e8c-4382-9d66-ee0da1d919b1" />
 </p>
 <p>
 Steps:
