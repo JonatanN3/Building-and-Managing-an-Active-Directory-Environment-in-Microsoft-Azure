@@ -91,7 +91,7 @@ Explanation:
 <h2>Configure dc-1 Operating System and Credentials</h2>
 
 <p>
-<img width="1536" height="1024" alt="Lab6" src="https://github.com/user-attachments/assets/bf194cfa-9233-47c5-a9bf-9a39fd46111d" />
+<img width="1536" height="865" alt="Lab6" src="https://github.com/user-attachments/assets/b364fc50-8644-45ac-9dec-d837abed3df9" />
 </p>
 <p>
 Step:
@@ -109,7 +109,7 @@ This step confirms that the server is deployed with a supported Windows Server o
 <h2>Configure Networking for dc-1</h2>
 
 <p>
-<img width="1536" height="1024" alt="Lab7" src="https://github.com/user-attachments/assets/b633b24b-eefb-444e-87f2-24fada2892c8" />
+<img width="1536" height="862" alt="Lab7" src="https://github.com/user-attachments/assets/16a7de95-3c73-495c-b2cb-463c2ee8f7ff" />
 </p>
 <p>
 Steps:
@@ -128,7 +128,7 @@ This ensures that DC-1 is connected to the lab environment and can be remotely a
 <h2>Configure DC-1 Private IP Address</h2>
 
 <p>
-<img width="1536" height="1024" alt="Lab12" src="https://github.com/user-attachments/assets/5cb77edb-e6ae-49f2-9b3f-43e46849bb9f" />
+<img width="1536" height="864" alt="Lab12" src="https://github.com/user-attachments/assets/d884cb4c-6587-43bf-ae63-a830bc7ae36a" />
 </p>
 <p>
 Steps:
@@ -148,7 +148,8 @@ This step ensures that the DC-1 domain controller maintains a consistent private
 <h2>Begin Creating the Client VM</h2>
 
 <p>
-<img width="1536" height="1024" alt="Lab8" src="https://github.com/user-attachments/assets/35ffd7b1-fcb3-43fc-b62e-251070cc6e87" />
+<img width="1536" height="859" alt="Lab8" src="https://github.com/user-attachments/assets/71044850-6a0c-424d-b685-9c5ab3e75023" />
+
 </p>
 <p>
 Steps:
@@ -164,8 +165,7 @@ This machine is created to simulate a workstation that will later connect to and
 
 <h2>Client-1 Operating System and Credentials</h2>
 
-<p>
-<img width="1536" height="1024" alt="Lab9" src="https://github.com/user-attachments/assets/060f395e-11f0-4e5e-8134-5b30a653a064" />
+<p><img width="1536" height="855" alt="Lab9" src="https://github.com/user-attachments/assets/812804b2-f52b-4298-8857-1fc193933b56" />
 </p>
 <p>
 Step:
@@ -183,7 +183,7 @@ This step varifies that the client computer is deployed with a supported Windows
 <h2>Configure Networking for Client-1</h2>
 
 <p>
-<img width="1536" height="1024" alt="Lab10" src="https://github.com/user-attachments/assets/e9daa5f8-aa22-4291-92ee-c2916acd2d72" />
+<img width="1536" height="856" alt="Lab10" src="https://github.com/user-attachments/assets/7a130d78-af6f-4ae6-bde0-8cb7112858dd" />
 </p>
 <p>
 Step:
