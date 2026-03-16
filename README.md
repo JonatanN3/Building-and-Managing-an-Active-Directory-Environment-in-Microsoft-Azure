@@ -47,7 +47,7 @@ Steps:
 - Review the settings.
 - Continue to create the resource group.
 
-Explanation:
+**Explanation:**
 This creates a dedicated container for all resources used in the lab, including virtual machines and networking components.
 
 <h2>Create the Virtual Network</h2>
@@ -85,7 +85,7 @@ Steps:
 - Select the deployment region Canada Central. (The same as the resource group)
 - Review the basic configuration settings.
 
-Explanation:
+**Explanation:**
  This virtual machine is to serve as the main server for the lab. It will be promoted to a Domain Controller.
 
 <h2>Configure dc-1 Operating System and Credentials</h2>
@@ -122,7 +122,7 @@ Steps:
 - Allow RDP (3389) inbound access.
 - Review the settings before deployment.
 
-Explanation:
+**Explanation:**
 This ensures that DC-1 is connected to the lab environment and can be remotely accessed and managed via Remote Desktop.
 
 <h2>Configure DC-1 Private IP Address</h2>
