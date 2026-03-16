@@ -31,7 +31,7 @@ Steps:
 - Locate Resource groups from the Azure services menu.
 - Click Create to begin building a new resource group for the lab environment.
 
-Explanation:
+**Explanation:**
   A resource group is used to organize related Azure resources in one location. Creating it first helps keep all lab components structured and easier to manage.
 
 <h2>Create the Resource Group</h2>
@@ -66,7 +66,7 @@ Step:
 - Review the default IP address space and subnet settings.
 - Click Create.
 
-Explanation:
+**Explanation:**
  The virtual network allows the domain controller and client machine to communicate privately inside Azure. This is required for domain communication and DNS resolution.
 
 <h2> Begin Creating the Domain Controller VM</h2>
@@ -103,7 +103,7 @@ Step:
 - Enter and confirm the administrator password.
 - Continue through the setup wizard.
 
-Explanation:
+**Explanation**:
 This step confirms that the server is deployed with a supported Windows Server operating system capable of running Active Directory Domain Services.
 
 <h2>Configure Networking for dc-1</h2>
@@ -141,7 +141,7 @@ Steps:
 - Verify the public IP address for remote access.
 - Save the configuration changes.
 
-Explanation:
+**Explanation:**
 This step ensures that the DC-1 domain controller maintains a consistent private IP address, which is critical for reliable DNS services and proper communication within the Active Directory environment.
 
 
@@ -160,7 +160,7 @@ Steps:
 - Chose the same region as dc-1.
 - Review the basic configuration settings.
 
-Explanation:
+**Explanation:**
 This machine is created to simulate a workstation that will later connect to and join the domain.
 
 <h2>Client-1 Operating System and Credentials</h2>
@@ -177,7 +177,7 @@ Step:
 - Enter and confirm the administrator password.
 - Continue through the setup wizard.
 
-Explanation:
+**Explanation:**
 This step varifies that the client computer is deployed with a supported Windows operating system that will later be connected to the DC-1 domain controller as part of the Active Directory environment.
 
 <h2>Configure Networking for Client-1</h2>
@@ -196,7 +196,7 @@ Step:
 - Allow RDP (3389) inbound access.
 - Continue with the deployment.
 
-Explanation:
+**Explanation:**
 This confirms that Client-1 is on the same virtual network as dc-1 so both machines could communicate internally.
 
 <h2>Verify Both Virtual Machines Are Running</h2>
@@ -210,7 +210,7 @@ Step:
 - Verify that dc-1 and Client-1 shows on the list.
 - Confirm both virtual machines shows a Running status.
 
-Explanation:
+**Explanation:**
  This confirms that both systems are deployed successfully and are ready for configuration and testing.
 
 <h2> Connect to dc-1 with Remote Desktop</h2>
@@ -228,7 +228,7 @@ Step:
 - Type the administrator credentials.
 - Launch the remote desktop.
 
-Explanation:
+**Explanation:**
  Remote Desktop provides administrative access to the server so configuration tasks can be completed directly inside the VM.
 
 <h2>Verify Server Manager on dc-1</h2>
@@ -243,7 +243,7 @@ Step:
 - Allow the Windows Server desktop to fully load.
 - Confirm that Server Manager opened successfully, indicating the server was ready for configuration.
   
-Explanation:
+**Explanation:**
  Server Manager is the main administrative tool used to install server roles and manage Windows Server services.
 
 <h2>Adjust Windows Firewall Settings for Lab Testing</h2>
@@ -259,7 +259,7 @@ Step:
 - Adjust the firewall configuration for the lab environment.
 - Confirm the changes were applied.
 
-Explanation:
+**Explanation:**
  In a lab environment, firewall settings are sometimes adjusted to make connectivity testing easier between systems. This helps avoid blocked communication during setup and troubleshooting
 
 <h2> Begin Connectivity Testing from Client-1</h2>
@@ -272,11 +272,11 @@ Step:
   
 - Log into Client-1.
 - Open Windows PowerShell.
-- Type the following command:
-  ping 10.0.0.4
+- Type the following command:<br>
+  **ping 10.0.0.4**
 - Run the command to test connectivity to the domain controller.
 
-Explanation: 
+**Explanation:**
  This test verifies network connectivity between Client-1 and the domain controller (DC-1). Successful ping responses confirm that the client machine can reach the server across the private network.
 
 <h2>Verify Network Connectivity and DNS Settings</h2>
@@ -288,13 +288,13 @@ Explanation:
 Step:
   
 - Confirm that the ping to 10.0.0.4 was successful.
-- Type the following command:
-  ipconfig /all
+- Type the following command:<br>
+  **ipconfig /all**
 - Review the network adapter details.
 - Verify the client IP configuration.
 - Confirm the DNS server setting pointed to 10.0.0.4.
 
-Explanation:
+**Explanation:**
  This final verification guarantees that Client-1 could communicate with dc-1 and that the DNS settings were correctly configured to point to the domain controller. That completes the infrastructure setup required before deploying Active Directory.
 
 <h2>Summary</h2>
