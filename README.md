@@ -27,7 +27,7 @@ This tutorial focuses on establishing the necessary infrastructure in Microsoft 
 <p>
 Steps:
   
-- Open in to the Azure portal.
+- Launch the Azure portal.
 - Locate Resource groups from the Azure services menu.
 - Click Create to begin building a new resource group for the lab environment.
 
@@ -78,7 +78,7 @@ Step:
 <p>
 Steps:
   
-- Open Virtual machines in Azure.
+- Launch Virtual machines in Azure.
 - Click Create virtual machine.
 - Select the Active-Directory-Lab resource group.
 - Enter the VM name dc-1.
