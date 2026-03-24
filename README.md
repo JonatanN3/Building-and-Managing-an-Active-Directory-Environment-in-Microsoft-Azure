@@ -133,7 +133,7 @@ This ensures that DC-1 is connected to the lab environment and can be remotely a
 <p>
 Steps:
   
-- Navigate to the Network Interface settings for the DC-1 virtual machine.
+- Locate the Network Interface settings for the DC-1 virtual machine.
 - Select IP configurations to modify the network settings.
 - Open the primary IP configuration (ipconfig1).
 - Change the Private IP allocation setting from Dynamic to Static.
@@ -147,17 +147,15 @@ This step ensures that the DC-1 domain controller maintains a consistent private
 
 <h2>Begin Creating the Client VM</h2>
 
-<p>
 <img width="1536" height="859" alt="Lab8" src="https://github.com/user-attachments/assets/71044850-6a0c-424d-b685-9c5ab3e75023" />
-
 </p>
 <p>
 Steps:
   
-- Start another Create virtual machine process.
+- Launch another virtual machine.
 - Select the Active-Directory-Lab resource group.
-- Enter the virtual machine name Client-1.
-- Chose the same region as dc-1.
+- Type the virtual machine name Client-1.
+- Select the same region as dc-1.
 - Review the basic configuration settings.
 
 **Explanation:**
@@ -188,8 +186,8 @@ This step varifies that the client computer is deployed with a supported Windows
 <p>
 Step:
   
-- Opened the Networking tab during the Client-1 setup.
-- Selected Active-Directory-VNet.
+- Open the Networking tab during the Client-1 setup.
+- Choose Active-Directory-VNet.
 - Keep the default subnet.
 - Assign a public IP address.
 - Configure the network security settings.
@@ -206,7 +204,7 @@ This confirms that Client-1 is on the same virtual network as dc-1 so both machi
 <p>
 Step:
   
-- Return to the Virtual machines page.
+- Go back to the Virtual machines page.
 - Verify that dc-1 and Client-1 shows on the list.
 - Confirm both virtual machines shows a Running status.
 
@@ -221,7 +219,7 @@ Step:
 <p>
 Step:
 
-- Open the dc-1 virtual machine details in Azure.
+- Launch dc-1 virtual machine details in Azure.
 - Locate the public IP address for dc-1.
 - Open Remote Desktop Connection on the local computer.
 - Enter the public IP address.
@@ -254,9 +252,9 @@ Step:
 <p>
 Step:
   
-- Open Windows Defender Firewall with Advanced Security on dc-1.
+- Launch Windows Defender Firewall with Advanced Security on dc-1.
 - Review the firewall profile settings.
-- Adjust the firewall configuration for the lab environment.
+- Configure the firewall configuration for the lab environment.
 - Confirm the changes were applied.
 
 **Explanation:**
