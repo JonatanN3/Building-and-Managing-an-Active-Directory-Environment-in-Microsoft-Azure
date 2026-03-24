@@ -100,7 +100,7 @@ Step:
 - Confirm the VM architecture is set to x64.
 - Select the VM size for the lab.
 - Type the administrator username.
-- Enter and confirm the administrator password.
+- Type and confirm the administrator password.
 - Continue through the setup wizard.
 
 **Explanation**:
@@ -171,8 +171,8 @@ Step:
 - Select Windows 11 Pro as the image.
 - Confirm the VM architecture.
 - Select the VM size for the lab.
-- Enter the administrator username.
-- Enter and confirm the administrator password.
+- Type the administrator username.
+- Type and confirm the administrator password.
 - Continue through the setup wizard.
 
 **Explanation:**
