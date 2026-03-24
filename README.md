@@ -239,7 +239,7 @@ Step:
   
 - Sign in to dc-1 using Remote Desktop.
 - Allow the Windows Server desktop to fully load.
-- Confirm that Server Manager opened successfully, indicating the server was ready for configuration.
+- Confirm that Server Manager opens successfully, indicating the server was ready for configuration.
   
 **Explanation:**
  Server Manager is the main administrative tool used to install server roles and manage Windows Server services.
