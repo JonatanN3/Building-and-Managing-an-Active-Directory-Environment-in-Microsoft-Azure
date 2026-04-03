@@ -1,18 +1,23 @@
 <p align="center">
 <img width="600" height="335" alt="image" src="https://github.com/user-attachments/assets/f5a3d652-196e-4dcf-814f-113a9cbb6f54" />
 
+<h1>Active Directory End-to-End Deployment and Management Lab</h1>
 
-
-<h1>Building Active Directory Infrastructure in Microsoft Azure</h1>
-This tutorial focuses on establishing the necessary infrastructure in Microsoft Azure for an Active Directory deployment. This includes creating the required cloud resources, configuring a virtual network, deploying virtual machines, and confirming proper network communication between systems before implementing Active Directory Domain Services.<br />
+**Overview**<br>
+This project demonstrates the full lifecycle of building, deploying, automating, and managing an Active Directory environment in Microsoft Azure. The implementation follows a structured approach that begins with infrastructure setup, continues through domain deployment, expands into user account automation with PowerShell, and concludes with security enforcement through Group Policy and account management.
 
 <h2>Environments and Technologies Used</h2>
 
 - Microsoft Azure (Virtual Machines)
-- Azure Virtual Network
+- Azure Virtual Network (VNet)
 - Azure Resource Groups
 - Remote Desktop Protocol (RDP)
-- DNS
+- Domain Name System (DNS)
+- Active Directory Domain Services (AD DS)
+- Active Directory Users and Computers (ADUC)
+- Group Policy Management Console (GPMC)
+- Windows PowerShell
+- PowerShell ISE
 
 <h2>Operating Systems Used </h2>
 
@@ -34,272 +39,417 @@ Steps:
 **Explanation:**
   A resource group is used to organize related Azure resources in one location. Creating it first helps keep all lab components structured and easier to manage.
 
-<h2>Create the Resource Group</h2>
+<h2>Phase 1: Azure Infrastructure Setup</h2>
+In the first phase of the project, the Azure environment is prepared to support the Active Directory deployment. A dedicated resource group and virtual network are created, two virtual machines are deployed, and connectivity is verified to ensure the environment is ready for domain services.
 
-<img width="1536" height="810" alt="Lab2" src="https://github.com/user-attachments/assets/8934d166-7e95-4b85-9004-757912121816" />
-</p>
-<p>
+**Open Resource Groups in Azure**
+<img width="1536" height="808" alt="Lab1" src="https://github.com/user-attachments/assets/d5981229-5ad8-4dd8-b33f-4c7580fac3eb" />
+
+**Steps:**
+- Launch the Azure portal.
+- Locate **Resource groups** from the Azure services menu.
+- Click **Create** to begin building a new resource group for the lab environment.
+
+**Explanation:** A resource group is used to organize related Azure resources in one location. Creating it first keeps all lab components structured and easier to manage.
+
+**Create the Resource Group**
+<img width="1536" height="810" alt="Lab2" src="https://github.com/user-attachments/assets/4757bbd3-b46a-4d7a-9ee4-7688b4fb4526" />
+
+**Steps:**
+Select the appropriate Azure subscription.
+Enter the resource group name **Active-Directory-Lab.**
+Choose the region **Canada Central.
+Review the settings.**
+Continue to create the resource group.
+
+**Explanation:** This creates a dedicated container for all resources used in the lab, including virtual machines and networking components.
+
+**Create the Virtual Network**
+<img width="1536" height="802" alt="Lab4" src="https://github.com/user-attachments/assets/d45859f8-c036-4688-80c4-dbf86a0a1ba8" />
+
+**Steps:**
+Launch **Virtual networks** in Azure.
+Select **Create.**
+Assign the network to the **Active-Directory-Lab** resource group.
+Enter the virtual network name **Active-Directory-VNet.**
+Verify the region matches the resource group.
+Review the default IP address space and subnet settings.
+Click **Create.**
+
+**Explanation:** The virtual network allows the domain controller and client machine to communicate privately inside Azure. This is required for domain communication and DNS resolution.
+
+**Configure dc-1 Operating System and Credentials**
+<img width="1536" height="865" alt="Lab6" src="https://github.com/user-attachments/assets/1de4a86a-f325-4684-83e6-2b4f6bcff879" />
+
+**Steps:**
+Begin creating the **dc-1** virtual machine.
+Select **Windows Server 2022 Datacenter Azure Edition** as the image.
+Confirm the VM architecture is set to **x64.**
+Select the VM size for the lab.
+Enter the administrator username.
+Enter and confirm the administrator password.
+Continue through the setup wizard.
+
+**Explanation:** This step confirms that the server is deployed with a supported Windows Server operating system capable of running Active Directory Domain Services.
+
+**Configure Networking for dc-1**
+<img width="1536" height="862" alt="Lab7" src="https://github.com/user-attachments/assets/0121f196-2133-4e4a-957b-b5b631e7311c" />
+
+**Steps:**
+Open the **Networking** tab during the **dc-1** VM creation.
+Select **Active-Directory-VNet** as the virtual network.
+Choose the default subnet.
+Assign a public IP address for remote access.
+Set the network security group options.
+Allow **RDP (3389)** inbound access.
+Review the settings before deployment.
+
+**Explanation:** This ensures that **dc-1** is connected to the lab environment and can be remotely accessed and managed through Remote Desktop.
+
+**Configure DC-1 Private IP Address**
+<img width="1536" height="1024" alt="Lab12" src="https://github.com/user-attachments/assets/d329bb7f-c083-47af-a65e-35aa0af4594a" />
+
+**Steps:**
+Locate the Network Interface settings for the **dc-1** virtual machine.
+Select **IP configurations** to modify the network settings.
+Open the primary IP configuration **(ipconfig1).**
+Change the **Private IP allocation** setting from **Dynamic** to **Static.**
+Confirm the assigned private IP address **(10.0.0.4).**
+Verify the public IP address for remote access.
+Save the configuration changes.
+
+**Explanation:** This step ensures that the domain controller maintains a consistent private IP address, which is critical for reliable DNS services and proper communication within the Active Directory environment.
+
+**Begin Creating the Client VM**
+<img width="1536" height="859" alt="Lab8" src="https://github.com/user-attachments/assets/42f7c013-42e8-41d7-bb22-4d2ddb15d5cb" />
+
+**Steps:**
+Launch another virtual machine.
+Select the **Active-Directory-Lab** resource group.
+Enter the virtual machine name **Client-1.**
+Select the same region as **dc-1.**
+Review the basic configuration settings.
+
+**Explanation:** This machine is created to simulate a workstation that will later connect to and join the domain.
+
+**Configure Networking for Client-1**
+<img width="1536" height="856" alt="Lab10" src="https://github.com/user-attachments/assets/2cb1c0fc-61f9-4ac0-bddb-957722cfbba1" />
+
+**Steps:**
+Open the **Networking** tab during the **Client-1** setup.
+Choose **Active-Directory-VNet.**
+Keep the default subnet.
+Assign a public IP address.
+Configure the network security settings.
+Allow **RDP (3389)** inbound access.
+Continue with the deployment.
+
+**Explanation:** This confirms that **Client-1** is placed on the same virtual network as **dc-1** so both machines can communicate internally.
+
+**Begin Connectivity Testing from Client-1**
+<img width="1512" height="870" alt="Lab23" src="https://github.com/user-attachments/assets/55a59e50-0502-480a-9ca3-c0aa2df7c239" />
+
+**Steps:**
+Log in to **Client-1.**
+Open **Windows PowerShell.**
+Type the following command: **ping 10.0.0.4**
+Run the command to test connectivity to the domain controller.
+
+**Explanation:** This test verifies network connectivity between **Client-1** and the domain controller **(dc-1).** Successful ping responses confirm that the client machine can reach the server across the private network.
+
+**Verify Network Connectivity and DNS Settings**
+<img width="1118" height="638" alt="Lab24" src="https://github.com/user-attachments/assets/9143647e-3b0d-46a3-a30f-c6e1ebd33cbf" />
+
+**Steps:**
+Confirm that the ping to **10.0.0.4** is successful.
+Type the following command: **ipconfig /all**
+Review the network adapter details.
+Verify the client IP configuration.
+Confirm the DNS server setting points to **10.0.0.4.**
+
+**Explanation:** This final verification confirms that **Client-1** can communicate with **dc-1** and that the DNS settings are correctly configured to point to the domain controller. That completes the infrastructure setup required before deploying Active Directory.
+
+<h2>Phase 2: Active Directory Domain Services Deployment</h2>
+With the Azure infrastructure in place, the next phase focuses on installing and configuring Active Directory Domain Services, promoting the server to a Domain Controller, creating the domain environment, and joining the client machine to the domain.
+
+**Server Manager Dashboard**
+<img width="1536" height="1024" alt="LabA1" src="https://github.com/user-attachments/assets/6b96491b-0e18-465b-afc9-7b25748927f9" />
+
+**Steps:**
+Launch the Windows Server virtual machine **dc-1.**
+Sign in to the server using administrative credentials.
+Wait for the desktop environment to finish loading.
+Open **Server Manager.**
+Review the dashboard to confirm the server is available for configuration.
+Prepare to begin installing the Active Directory Domain Services role.
+
+**Explanation:** This shows the starting point of the server configuration process. Server Manager is the primary tool used to install roles and features on Windows Server, including Active Directory Domain Services.
+
+**Select Active Directory Domain Services**
+<img width="1536" height="1024" alt="LabA4" src="https://github.com/user-attachments/assets/f6103495-8246-45eb-9e0d-6c716f28cfdf" />
+
+**Steps:**
+Choose **Add Roles and Features.**
+Proceed through the wizard until reaching the **Server Roles** page.
+Locate **Active Directory Domain Services** in the list of available roles.
+Check the box for **Active Directory Domain Services.**
+Review the description shown on the right side of the wizard.
+Prepare to continue with the required supporting features.
+
+**Explanation:** This step selects the core server role required to build an Active Directory environment. Choosing Active Directory Domain Services allows the server to later be promoted into a Domain Controller.
+
+**Confirm Installation Selections**
+<img width="1536" height="1024" alt="LabA10" src="https://github.com/user-attachments/assets/4f83d00c-3e1d-4dda-9a2e-db404f27e953" />
+
+**Steps:**
+Accept the additional required features when prompted.
+Continue through the wizard until reaching **Confirm installation selections.**
+Review the selected roles and features, including: 
+**Active Directory Domain Services**
+**Group Policy Management**
+**Remote Server Administration Tools**
+Check **Restart the destination server automatically if required.**
+Click **Install.**
+
+**Explanation:** This step confirms the final set of components required for Active Directory Domain Services. Installing these features is a necessary step toward configuring the Windows Server as an operational Domain Controller.
+
+**Promote This Server to a Domain Controller**
+<img width="1536" height="1024" alt="LabA14" src="https://github.com/user-attachments/assets/5a117b73-88ea-4cfb-89d9-79b4cea80841" />
+
+**Steps:**
+Return to the **Server Manager** dashboard after the AD DS role finishes installing.
+Observe the notification flag in the upper-right corner.
+Click the notification flag.
+Review the post-deployment message indicating that configuration is required for Active Directory Domain Services on **dc-1.**
+Locate the option: **Promote this server to a domain controller**
+Select the promotion link to begin the Active Directory Domain Services Configuration Wizard.
+
+**Explanation:** Promoting the server to a Domain Controller configures it to run Active Directory and manage the domain. This allows the server to control user accounts, computers, and security policies across the network.
+
+**Configure a New Forest**
+<img width="1536" height="1024" alt="LabA15" src="https://github.com/user-attachments/assets/8480e66e-235d-47ce-81ee-3fd36f19380d" />
+
+**Steps:**
+Open the Active Directory Domain Services Configuration Wizard from Server Manager.
+Review the available deployment options.
+Select **Add a new forest.**
+Click into the **Root domain name** field.
+Type the domain name: **mydomain.com**
+Ensure that the new forest option is selected.
+Click **Next** to continue.
+
+**Explanation:** During this step, a new Active Directory forest is created and the root domain is defined. The forest serves as the top-level container of the directory structure, while the root domain acts as the primary administrative control point for the network.
+
+**Configure Domain Controller Options**
+<img width="1536" height="1024" alt="LabA16" src="https://github.com/user-attachments/assets/52529dfa-aaf9-43ad-acb6-8477cf15717c" />
+
+**Steps:**
+Proceed to the **Domain Controller Options** page.
+Review the default **Forest functional level.**
+Review the default **Domain functional level.**
+Verify that the **DNS server** option is selected.
+Verify that the **Global Catalog (GC)** option is enabled.
+Leave **Read Only Domain Controller (RODC)** unselected.
+Enter a **Directory Services Restore Mode (DSRM)** password.
+Confirm the DSRM password in the second field.
+Select **Next** to continue.
+
+**Explanation:** This step defines important domain controller settings. It enables DNS integration, confirms the server’s role in the domain, and sets the DSRM password used for recovery and maintenance of Active Directory services.
+
+**Prerequisites Check**
+<img width="1536" height="1024" alt="LabA19" src="https://github.com/user-attachments/assets/3df541c6-c897-4b18-876e-9cc1955a123d" />
+
+**Steps:**
+Proceed through the configuration wizard after reviewing the deployment options.
+Reach the **Prerequisites Check** page.
+Wait while Windows validates the configuration.
+Review the results shown in the wizard.
+Verify that the message states: **All prerequisite checks passed successfully**
+Review any warning messages listed in the results panel.
+Confirm that no blocking errors prevent the promotion process.
+Click **Install.**
+
+**Explanation:** This step checks the server’s readiness to become a Domain Controller. The wizard validates required settings, confirms prerequisites are met, and alerts you to any warnings or errors before the promotion process starts.
+
+**Domain Controller Promotion Complete**
+<img width="1536" height="1024" alt="LabA21" src="https://github.com/user-attachments/assets/fa23c6a3-33b9-43cc-8e1d-7549c561fed7" />
+
+**Steps:**
+Wait while Active Directory is configured.
+Review the **Results** page after the promotion process completes.
+Confirm the message showing: **This server was successfully configured as a domain controller**
+Observe the notification indicating that the computer is about to be signed out.
+Read the restart message explaining that: **The server is going to be restarted because Active Directory Domain Services has been installed or removed.**
+Allow the restart process to continue.
+
+**Explanation:** This step indicates that the Domain Controller promotion process has finished successfully. Restarting the server finalizes the configuration and allows Active Directory Domain Services to begin operating.
+
+**Verify Domain Presence in ADUC**
+<img width="1536" height="1024" alt="LabA26" src="https://github.com/user-attachments/assets/e4e3a5df-eda0-4701-89af-d648d5bf098a" />
+
+**Steps:**
+Click the **Start Menu.**
+Open **Windows Administrative Tools.**
+Select **Active Directory Users and Computers.**
+Verify that **mydomain.com** appears under Active Directory Users and Computers.
+Confirm that the domain is listed and accessible in the console.
+
+**Explanation:** This step confirms that the Active Directory domain is successfully created and visible within the Active Directory Users and Computers console. Seeing the domain listed indicates that the Domain Controller is properly managing the directory environment and is ready for administrative tasks.
+
+**Create Organizational Unit**
+<img width="1536" height="1024" alt="LabA27" src="https://github.com/user-attachments/assets/170a91de-5cac-49c7-bc6d-cdb3300cee6c" />
+
+**Steps:**
+Open **Active Directory Users and Computers.**
+Select **mydomain.com.**
+Right-click the domain name.
+Choose **New.**
+Select **Organizational Unit.**
+Click into the **Name** field.
+Type the name: **_EMPLOYEES**
+Leave **Protect container from accidental deletion** checked.
+Click **OK** to create the Organizational Unit.
+
+**Explanation:** An Organizational Unit is created to organize and manage user accounts within the domain. OUs allow administrators to structure resources logically and make it easier to delegate administrative tasks and apply group policies.
+
+**Join Client-1 to the Domain**
+<img width="1536" height="1024" alt="LabA31" src="https://github.com/user-attachments/assets/332db8fe-4c28-41c1-9c6f-27d9fd85ab3f" />
+
+**Steps:**
+Log in to the **Client-1** virtual machine.
+Open the **Start Menu** and select **System.**
+Click **Rename this PC (advanced).**
+Under the **Computer Name** tab, click **Change.**
+Observe the **Computer Name/Domain Changes window.**
+Select the Domain option under **Member of.**
+Click into the domain field.
+Type: **mydomain.com**
+Click **OK.**
+
+**Explanation:** By joining the workstation to the domain, it becomes part of the Active Directory environment. This integration allows administrators to manage the computer, apply group policies, and provide users with domain-based sign-in access.
+
+<h2>Phase 3: Automating User Creation with PowerShell</h2>
+After establishing the domain environment, the next phase focuses on automating user account creation using PowerShell. This demonstrates how repetitive administrative tasks can be completed more efficiently and consistently through scripting.
+
+**Open and Review the PowerShell Script**
+<img width="1536" height="1024" alt="LabB5" src="https://github.com/user-attachments/assets/68ebdb74-5546-4aa7-ad3b-8037a289df22" />
+
+**Steps:**
+Launch **Windows PowerShell ISE** with administrative privileges.
+Import or open the user creation script within the script editor.
+Examine the script variables and configuration details carefully.
+Verify the password that will be applied to the generated user accounts.
+Check the total number of users the script is configured to create.
+Review the overall script layout to ensure everything is correct before running it.
+
+**Explanation:** This step represents the review stage of the automation process. Examining the script before execution helps confirm that the configuration is correct and that the user creation process will run as intended without errors.
+
+**Review New-ADUser Automation Logic**
+<img width="1536" height="1024" alt="LabB7" src="https://github.com/user-attachments/assets/bb47966b-8f75-4758-937d-1bb344f2917d" />
+
+**Steps:**
+Examine the portion of the script that handles the creation of user accounts.
+Ensure that a loop is implemented to generate multiple users automatically.
+Check that first and last names are being generated programmatically.
+Verify that these names are combined properly to form a username.
+Review the method used to convert the password into a secure string format.
+Confirm that the **New-ADUser** cmdlet is used to create each user account.
+Ensure the **Path** parameter is set to the **_EMPLOYEES** Organizational Unit.
+Verify that all newly created accounts are set to active **(enabled).**
+
+**Explanation:** This step demonstrates the practical use of scripting for scalability. Automating user creation allows administrators to quickly deploy large numbers of accounts while maintaining standardized configurations and minimizing human error.
+
+**Execute the Script and Create Users**
+<img width="1536" height="1024" alt="LabB8" src="https://github.com/user-attachments/assets/f19c81f3-63a5-4b0b-9295-3db5b87707f5" />
+
+**Steps:**
+Select **Run Script** within Windows PowerShell ISE to execute the script.
+Observe the console output displayed in the lower pane.
+Check for messages such as **Creating user** to confirm activity.
+Ensure that usernames are being generated one after another without interruption.
+Allow the script to run until the entire user creation process is complete.
+
+**Explanation:** This step validates that the automation is functioning correctly. Monitoring the console output shows that each user account is being generated as intended, confirming accurate script execution.
+
+**Verify Accounts in ADUC**
+<img width="1536" height="1024" alt="LabB11" src="https://github.com/user-attachments/assets/dba3d0f5-4522-49b0-be9b-76f5e64f04b3" />
+
+**Steps:**
+Open **Active Directory Users and Computers** from the administrative tools.
+Expand the domain in the left-hand pane to view available Organizational Units.
+Select the **_EMPLOYEES** Organizational Unit.
+Review the list of users shown in the main pane.
+Choose a user account that will be used for sign-in testing.
+
+**Explanation:** This is the proof stage of the automation workflow. It confirms that the accounts are successfully written into Active Directory and stored in the correct Organizational Unit.
+
+**Confirm Successful Login**
+<img width="1536" height="1024" alt="LabB16" src="https://github.com/user-attachments/assets/22022801-22a3-49a9-af90-215ea751766d" />
+
+**Steps:**
+Log in to the client computer or connect through Remote Desktop.
+Enter the username of one of the generated accounts.
+Type the password specified in the script.
+Start the sign-in process using the domain user credentials.
+Wait for the sign-in process to finish completely.
+Confirm that the user profile begins initializing and that the account gains access to the system.
+
+**Explanation:** This step serves as the final validation of the automation process. Successful sign-in confirms that the generated accounts are functional, properly authenticated through Active Directory, and able to access system resources as expected.
+
+<h2>Phase 4: Group Policy Configuration and Account Management</h2>
+With user accounts successfully created, the final phase focuses on enforcing security policies and performing administrative account management tasks. This phase demonstrates how Group Policy and Active Directory tools are used to manage authentication behavior and user access.
+
 Steps:
-  
-- Select the appropriate Azure subscription.
-- Click the resource group name Active-Directory-Lab.
-- Choose the region Canada Central.
-- Review the settings.
-- Continue to create the resource group.
+Wait until the Group Policy Management Console finishes opening.
+Confirm that the console shows Forest: mydomain.com.
+Explanation: This confirms that the Group Policy tools are available and properly connected to the Active Directory environment. It also shows that the domain is ready for policy administration.
 
-**Explanation:**
-This creates a dedicated container for all resources used in the lab, including virtual machines and networking components.
 
-<h2>Create the Virtual Network</h2>
-
-<p><img width="1536" height="802" alt="Lab4" src="https://github.com/user-attachments/assets/fd65a346-5a87-4320-a7cb-066a851c47b5" />
-
-</p>
-<p>
-Step:
-
-- Launch Virtual networks in Azure.
-- Select Create.
-- Assign the network to the Active-Directory-Lab resource group.
-- Enter the virtual network name Active-Directory-VNet.
-- Verify the region is the same as the resource group.
-- Review the default IP address space and subnet settings.
-- Click Create.
-
-**Explanation:**
- The virtual network allows the domain controller and client machine to communicate privately inside Azure. This is required for domain communication and DNS resolution.
-
-<h2> Begin Creating the Domain Controller VM</h2>
-
-<p>
-  
-<img width="1536" height="870" alt="560603103-a45e8255-76a3-4ed1-a028-6df06d804b44" src="https://github.com/user-attachments/assets/3d6f272c-7e8c-4382-9d66-ee0da1d919b1" />
-</p>
-<p>
 Steps:
-  
-- Launch Virtual machines in Azure.
-- Click Create virtual machine.
-- Select the Active-Directory-Lab resource group.
-- Enter the VM name dc-1.
-- Select the deployment region Canada Central. (The same as the resource group)
-- Review the basic configuration settings.
+Launch the Default Domain Policy in the Group Policy Management Editor.
+Navigate to: ↳ Computer Configuration ↳ Policies ↳ Windows Settings ↳ Security Settings ↳ Account Policies ↳ Account Lockout Policy
+Set the following options: Account lockout duration: 30 minutes Account lockout threshold: 5 invalid logon attempts Allow Administrator account lockout: Enabled Reset account lockout counter after: 10 minutes
+Explanation: This step configures the account lockout settings to strengthen security for domain accounts. It helps prevent unauthorized access by locking accounts after multiple failed sign-in attempts.
 
-**Explanation:**
- This virtual machine is to serve as the main server for the lab. It will be promoted to a Domain Controller.
 
-<h2>Configure dc-1 Operating System and Credentials</h2>
-
-<p>
-<img width="1536" height="865" alt="Lab6" src="https://github.com/user-attachments/assets/b364fc50-8644-45ac-9dec-d837abed3df9" />
-</p>
-<p>
-Step:
-  
-- Select Windows Server 2022 Datacenter Azure Edition as the image.
-- Confirm the VM architecture is set to x64.
-- Select the VM size for the lab.
-- Type the administrator username.
-- Type and confirm the administrator password.
-- Continue through the setup wizard.
-
-**Explanation**:
-This step confirms that the server is deployed with a supported Windows Server operating system capable of running Active Directory Domain Services.
-
-<h2>Configure Networking for dc-1</h2>
-
-<p>
-<img width="1536" height="862" alt="Lab7" src="https://github.com/user-attachments/assets/16a7de95-3c73-495c-b2cb-463c2ee8f7ff" />
-</p>
-<p>
 Steps:
-  
-- Open the Networking tab during the dc-1 VM creation.
-- Select Active-Directory-VNet as the virtual network.
-- Choose default subnet.
-- Assign a public IP address for remote access.
-- Set the network security group options.
-- Allow RDP (3389) inbound access.
-- Review the settings before deployment.
+On the client machine, attempt to sign in multiple times using incorrect credentials for the target user.
+Repeat the attempts until the account reaches the lockout threshold.
+Observe and note the error message displayed by Remote Desktop.
+Explanation: This step verifies proper enforcement of the account lockout settings. The error message shows that the account is temporarily restricted after repeated invalid sign-in attempts.
 
-**Explanation:**
-This ensures that DC-1 is connected to the lab environment and can be remotely accessed and managed via Remote Desktop.
 
-<h2>Configure DC-1 Private IP Address</h2>
-
-<p>
-<img width="1536" height="864" alt="Lab12" src="https://github.com/user-attachments/assets/d884cb4c-6587-43bf-ae63-a830bc7ae36a" />
-</p>
-<p>
 Steps:
-  
-- Locate the Network Interface settings for the DC-1 virtual machine.
-- Select IP configurations to modify the network settings.
-- Open the primary IP configuration (ipconfig1).
-- Change the Private IP allocation setting from Dynamic to Static.
-- Confirm the assigned private IP address (10.0.0.4).
-- Verify the public IP address for remote access.
-- Save the configuration changes.
-
-**Explanation:**
-This step ensures that the DC-1 domain controller maintains a consistent private IP address, which is critical for reliable DNS services and proper communication within the Active Directory environment.
+Launch Active Directory Users and Computers.
+Use the Find Users, Contacts, and Groups tool.
+Search for bab.pok in the Name box.
+Verify that the user is listed in the search results.
+Explanation: This step is used to locate the specific user account before performing administrative tasks. It reflects a standard help desk procedure for quickly accessing user information in Active Directory.
 
 
-<h2>Begin Creating the Client VM</h2>
-
-<img width="1536" height="859" alt="Lab8" src="https://github.com/user-attachments/assets/71044850-6a0c-424d-b685-9c5ab3e75023" />
-</p>
-<p>
 Steps:
-  
-- Launch another virtual machine.
-- Select the Active-Directory-Lab resource group.
-- Type the virtual machine name Client-1.
-- Select the same region as dc-1.
-- Review the basic configuration settings.
+Right-click the account to open the context menu.
+Click Disable Account.
+Acknowledge any confirmation prompt if it appears.
+Explanation: Disabling a user account is a standard administrative action that immediately blocks access to the domain. This is commonly performed when an account should no longer be used temporarily, such as during security incidents, offboarding, or account troubleshooting, while still preserving the account and its associated data.
 
-**Explanation:**
-This machine is created to simulate a workstation that will later connect to and join the domain.
 
-<h2>Client-1 Operating System and Credentials</h2>
-
-<p><img width="1536" height="855" alt="Lab9" src="https://github.com/user-attachments/assets/812804b2-f52b-4298-8857-1fc193933b56" />
-</p>
-<p>
-Step:
-  
-- Select Windows 11 Pro as the image.
-- Confirm the VM architecture.
-- Select the VM size for the lab.
-- Type the administrator username.
-- Type and confirm the administrator password.
-- Continue through the setup wizard.
-
-**Explanation:**
-This step varifies that the client computer is deployed with a supported Windows operating system that will later be connected to the DC-1 domain controller as part of the Active Directory environment.
-
-<h2>Configure Networking for Client-1</h2>
-
-<p>
-<img width="1536" height="856" alt="Lab10" src="https://github.com/user-attachments/assets/7a130d78-af6f-4ae6-bde0-8cb7112858dd" />
-</p>
-<p>
-Step:
-  
-- Open the Networking tab during the Client-1 setup.
-- Choose Active-Directory-VNet.
-- Keep the default subnet.
-- Assign a public IP address.
-- Configure the network security settings.
-- Allow RDP (3389) inbound access.
-- Continue with the deployment.
-
-**Explanation:**
-This confirms that Client-1 is on the same virtual network as dc-1 so both machines could communicate internally.
-
-<h2>Verify Both Virtual Machines Are Running</h2>
-
-<p><img width="1536" height="862" alt="Lab11" src="https://github.com/user-attachments/assets/2827c71e-8751-45a7-b67f-9eaa79eadc2f" />
-</p>
-<p>
-Step:
-  
-- Go back to the Virtual machines page.
-- Verify that dc-1 and Client-1 shows on the list.
-- Confirm both virtual machines shows a Running status.
-
-**Explanation:**
- This confirms that both systems are deployed successfully and are ready for configuration and testing.
-
-<h2> Connect to dc-1 with Remote Desktop</h2>
-
-<p>
-<img width="1536" height="857" alt="Lab14" src="https://github.com/user-attachments/assets/7afbc595-33d5-425f-95e4-b22bd0914690" />
-</p>
-<p>
-Step:
-
-- Launch dc-1 virtual machine details in Azure.
-- Locate the public IP address for dc-1.
-- Open Remote Desktop Connection on the local computer.
-- Enter the public IP address.
-- Type the administrator credentials.
-- Launch the remote desktop.
-
-**Explanation:**
- Remote Desktop provides administrative access to the server so configuration tasks can be completed directly inside the VM.
-
-<h2>Verify Server Manager on dc-1</h2>
-
-<p>
-<img width="1536" height="1024" alt="Lab16" src="https://github.com/user-attachments/assets/0a571eb0-7346-4b4b-a6e4-2e9fed680de2" />
-</p>
-<p>
-Step:
-  
-- Sign in to dc-1 using Remote Desktop.
-- Allow the Windows Server desktop to fully load.
-- Confirm that Server Manager opens successfully, indicating the server was ready for configuration.
-  
-**Explanation:**
- Server Manager is the main administrative tool used to install server roles and manage Windows Server services.
-
-<h2>Adjust Windows Firewall Settings for Lab Testing</h2>
-
-<p>
-<img width="1536" height="1024" alt="Lab19" src="https://github.com/user-attachments/assets/89318695-0a7c-4dae-8979-74b88d413de3" />
-</p>
-<p>
-Step:
-  
-- Launch Windows Defender Firewall with Advanced Security on dc-1.
-- Review the firewall profile settings.
-- Configure the firewall configuration for the lab environment.
-- Confirm the changes were applied.
-
-**Explanation:**
- In a lab environment, firewall settings are sometimes adjusted to make connectivity testing easier between systems. This helps avoid blocked communication during setup and troubleshooting
-
-<h2> Begin Connectivity Testing from Client-1</h2>
-
-<p>
-<img width="1512" height="982" alt="Lab23" src="https://github.com/user-attachments/assets/a8a735b1-122a-4041-96ae-868c8b633bab" />
-</p>
-<p>
-Step:
-  
-- Log into Client-1.
-- Open Windows PowerShell.
-- Type the following command:<br>
-  **ping 10.0.0.4**
-- Run the command to test connectivity to the domain controller.
-
-**Explanation:**
- This test verifies network connectivity between Client-1 and the domain controller (DC-1). Successful ping responses confirm that the client machine can reach the server across the private network.
-
-<h2>Verify Network Connectivity and DNS Settings</h2>
-
-<p>
-<img width="1536" height="1024" alt="Lab24" src="https://github.com/user-attachments/assets/5e375322-6c5a-4203-9d20-cdb9b0db998a" />
-</p>
-<p>
-Step:
-  
-- Confirm that the ping to 10.0.0.4 was successful.
-- Type the following command:<br>
-  **ipconfig /all**
-- Review the network adapter details.
-- Verify the client IP configuration.
-- Confirm the DNS server setting pointed to 10.0.0.4.
-
-**Explanation:**
- This final verification guarantees that Client-1 could communicate with dc-1 and that the DNS settings were correctly configured to point to the domain controller. That completes the infrastructure setup required before deploying Active Directory.
+Steps:
+Sign in to the client PC with an administrative account.
+Open the Command Prompt application.
+Type and run: gpupdate /force
+Verify that the update completes for both Computer and User policies.
+Explanation: This forces the client machine to retrieve and apply the latest Group Policy settings immediately. It is an important validation step because it ensures policy changes are active without waiting for the normal background refresh cycle.
 
 <h2>Summary</h2>
+This project demonstrates an end-to-end implementation of Active Directory in a cloud-based environment. Beginning with Azure infrastructure setup, the project progresses through domain deployment, automation of user creation, and enforcement of security policies.
 
-This stage focused on building the foundational Azure infrastructure required for the Active Directory lab. After creating the resource group and virtual network, both the domain controller and client virtual machines were deployed and configured. Remote Desktop access was tested and network connectivity between the machines were successfully validated, completing the infrastructure setup for the next phase.
+By completing this project, the following IT skills are demonstrated:
+Azure infrastructure deployment
+Active Directory configuration
+PowerShell automation
+Group Policy administration
+User and access management
+Network and DNS validation
 
-
-
-
-
+This project reflects real-world system administration tasks and showcases the ability to design, implement, automate, and manage an enterprise-style Active Directory environment.
