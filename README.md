@@ -1,4 +1,4 @@
-<p align="center">
+/<p align="center">
 <img width="600" height="335" alt="image" src="https://github.com/user-attachments/assets/f5a3d652-196e-4dcf-814f-113a9cbb6f54" />
 
 <h1>Active Directory End-to-End Deployment and Management Lab</h1>
@@ -24,24 +24,6 @@ This project demonstrates the full lifecycle of building, deploying, automating,
 - Windows Server 2022 (Datacenter Azure Edition Hotpatch-x64 Gen2)
 - Windows 11 Pro (Version 25H2-x64)
   
-
-<h2>Open Resource Groups in Azure</h2>
-
-<img width="1536" height="808" alt="Lab1" src="https://github.com/user-attachments/assets/10ef2fe8-9079-4ceb-aa6a-35ab6405fb09" />
-</p>
-<p>
-Steps:
-  
-- Launch the Azure portal.
-- Locate Resource groups from the Azure services menu.
-- Click Create to begin building a new resource group for the lab environment.
-
-**Explanation:**
-  A resource group is used to organize related Azure resources in one location. Creating it first helps keep all lab components structured and easier to manage.
-
-<h2>Phase 1: Azure Infrastructure Setup</h2>
-In the first phase of the project, the Azure environment is prepared to support the Active Directory deployment. A dedicated resource group and virtual network are created, two virtual machines are deployed, and connectivity is verified to ensure the environment is ready for domain services.
-
 **Open Resource Groups in Azure**
 <img width="1536" height="808" alt="Lab1" src="https://github.com/user-attachments/assets/d5981229-5ad8-4dd8-b33f-4c7580fac3eb" />
 
@@ -399,47 +381,76 @@ Confirm that the user profile begins initializing and that the account gains acc
 <h2>Phase 4: Group Policy Configuration and Account Management</h2>
 With user accounts successfully created, the final phase focuses on enforcing security policies and performing administrative account management tasks. This phase demonstrates how Group Policy and Active Directory tools are used to manage authentication behavior and user access.
 
-Steps:
-Wait until the Group Policy Management Console finishes opening.
-Confirm that the console shows Forest: mydomain.com.
-Explanation: This confirms that the Group Policy tools are available and properly connected to the Active Directory environment. It also shows that the domain is ready for policy administration.
+**Launch Group Policy Management Console**
+<img width="1536" height="1024" alt="LabC5" src="https://github.com/user-attachments/assets/c0e28256-0003-47f4-b28b-abd1c081e332" />
 
+**Steps:**
+Wait until the **Group Policy Management Console** finishes opening.
+Confirm that the console shows **Forest: mydomain.com.**
 
-Steps:
-Launch the Default Domain Policy in the Group Policy Management Editor.
-Navigate to: ↳ Computer Configuration ↳ Policies ↳ Windows Settings ↳ Security Settings ↳ Account Policies ↳ Account Lockout Policy
-Set the following options: Account lockout duration: 30 minutes Account lockout threshold: 5 invalid logon attempts Allow Administrator account lockout: Enabled Reset account lockout counter after: 10 minutes
-Explanation: This step configures the account lockout settings to strengthen security for domain accounts. It helps prevent unauthorized access by locking accounts after multiple failed sign-in attempts.
+**Explanation:** This confirms that the Group Policy tools are available and properly connected to the Active Directory environment. It also shows that the domain is ready for policy administration.
 
+**Configure Account Lockout Policy**
+<img width="1079" height="520" alt="LabC14" src="https://github.com/user-attachments/assets/caffddcb-2f00-4212-844b-63e517296504" />
 
-Steps:
+**Steps:**
+Launch the **Default Domain Policy** in the Group Policy Management Editor.
+Navigate to: 
+**↳ Computer Configuration** 
+**↳ Policies** 
+**↳ Windows Settings** 
+**↳ Security Settings** 
+**↳ Account Policies** 
+**↳ Account Lockout Policy**
+Set the following options: 
+**Account lockout duration: 30 minutes** 
+**Account lockout threshold: 5 invalid logon attempts** 
+**Allow Administrator account lockout: Enabled** 
+**Reset account lockout counter after: 10 minutes**
+
+**Explanation:** This step configures the account lockout settings to strengthen security for domain accounts. It helps prevent unauthorized access by locking accounts after multiple failed sign-in attempts.
+
+**Verify Account Lockout from Client Side**
+<img width="556" height="116" alt="LabC17" src="https://github.com/user-attachments/assets/d1c9aa15-a9da-42c5-8057-8fe3d123ed60" />
+
+**Steps:**
 On the client machine, attempt to sign in multiple times using incorrect credentials for the target user.
 Repeat the attempts until the account reaches the lockout threshold.
 Observe and note the error message displayed by Remote Desktop.
-Explanation: This step verifies proper enforcement of the account lockout settings. The error message shows that the account is temporarily restricted after repeated invalid sign-in attempts.
 
+**Explanation:** This step verifies proper enforcement of the account lockout settings. The error message shows that the account is temporarily restricted after repeated invalid sign-in attempts.
 
-Steps:
-Launch Active Directory Users and Computers.
-Use the Find Users, Contacts, and Groups tool.
-Search for bab.pok in the Name box.
+**Search for User Account**
+<img width="1536" height="1024" alt="LabC24" src="https://github.com/user-attachments/assets/97d17ea5-083a-432e-8ce1-52de728beea4" />
+
+**Steps:**
+Launch **Active Directory Users and Computers.**
+Use the **Find Users, Contacts, and Groups tool.**
+Search for **bab.pok** in the **Name** box.
 Verify that the user is listed in the search results.
-Explanation: This step is used to locate the specific user account before performing administrative tasks. It reflects a standard help desk procedure for quickly accessing user information in Active Directory.
 
+**Explanation:** This step is used to locate the specific user account before performing administrative tasks. It reflects a standard help desk procedure for quickly accessing user information in Active Directory.
 
-Steps:
+ **Disable User Account**
+![LabC30](https://github.com/user-attachments/assets/f19368a0-7f79-48ea-9eb1-30749799bc1c)
+
+**Steps:**
 Right-click the account to open the context menu.
-Click Disable Account.
+Click **Disable Account.**
 Acknowledge any confirmation prompt if it appears.
-Explanation: Disabling a user account is a standard administrative action that immediately blocks access to the domain. This is commonly performed when an account should no longer be used temporarily, such as during security incidents, offboarding, or account troubleshooting, while still preserving the account and its associated data.
 
+**Explanation:** Disabling a user account is a standard administrative action that immediately blocks access to the domain. This is commonly performed when an account should no longer be used temporarily, such as during security incidents, offboarding, or account troubleshooting, while still preserving the account and its associated data.
 
-Steps:
+ **Refresh Group Policy on Client**
+<img width="1512" height="982" alt="LabC32" src="https://github.com/user-attachments/assets/2cf90d8c-57af-47a1-a419-794884171726" />
+
+**Steps:**
 Sign in to the client PC with an administrative account.
-Open the Command Prompt application.
-Type and run: gpupdate /force
-Verify that the update completes for both Computer and User policies.
-Explanation: This forces the client machine to retrieve and apply the latest Group Policy settings immediately. It is an important validation step because it ensures policy changes are active without waiting for the normal background refresh cycle.
+Open the **Command Prompt** application.
+Type and run: **gpupdate /force**
+Verify that the update completes for both **Computer** and **User** policies.
+
+**Explanation:** This forces the client machine to retrieve and apply the latest Group Policy settings immediately. It is an important validation step because it ensures policy changes are active without waiting for the normal background refresh cycle.
 
 <h2>Summary</h2>
 This project demonstrates an end-to-end implementation of Active Directory in a cloud-based environment. Beginning with Azure infrastructure setup, the project progresses through domain deployment, automation of user creation, and enforcement of security policies.
