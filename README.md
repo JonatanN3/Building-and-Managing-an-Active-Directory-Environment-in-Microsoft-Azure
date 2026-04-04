@@ -155,7 +155,7 @@ Confirm the DNS server setting points to **10.0.0.4.**
 **Explanation:** This final verification confirms that **Client-1** can communicate with **dc-1** and that the DNS settings are correctly configured to point to the domain controller. That completes the infrastructure setup required before deploying Active Directory.
 
 <h2>Phase 2: Active Directory Domain Services Deployment</h2>
-With the Azure infrastructure in place, the next phase focuses on installing and configuring Active Directory Domain Services, promoting the server to a Domain Controller, creating the domain environment, and joining the client machine to the domain.<br><br>
+With the Azure infrastructure in place, the next phase focuses on installing and configuring Active Directory Domain Services, promoting the server to a Domain Controller, creating the domain environment, and joining the client machine to the domain.<br>
 
 <h3>Server Manager Dashboard</h3>
 <img width="1536" height="1024" alt="LabA1" src="https://github.com/user-attachments/assets/6b96491b-0e18-465b-afc9-7b25748927f9" />
@@ -314,7 +314,7 @@ Click **OK.**
 **Explanation:** By joining the workstation to the domain, it becomes part of the Active Directory environment. This integration allows administrators to manage the computer, apply group policies, and provide users with domain-based sign-in access.
 
 <h2>Phase 3: Automating User Creation with PowerShell</h2>
-After establishing the domain environment, the next phase focuses on automating user account creation using PowerShell. This demonstrates how repetitive administrative tasks can be completed more efficiently and consistently through scripting.<br><br>
+After establishing the domain environment, the next phase focuses on automating user account creation using PowerShell. This demonstrates how repetitive administrative tasks can be completed more efficiently and consistently through scripting.<br>
 
 <h3>Open and Review the PowerShell Script</h3>
 <img width="1536" height="1024" alt="LabB5" src="https://github.com/user-attachments/assets/68ebdb74-5546-4aa7-ad3b-8037a289df22" />
@@ -382,7 +382,7 @@ Confirm that the user profile begins initializing and that the account gains acc
 **Explanation:** This step serves as the final validation of the automation process. Successful sign-in confirms that the generated accounts are functional, properly authenticated through Active Directory, and able to access system resources as expected.
 
 <h2>Phase 4: Group Policy Configuration and Account Management</h2>
-With user accounts successfully created, the final phase focuses on enforcing security policies and performing administrative account management tasks. This phase demonstrates how Group Policy and Active Directory tools are used to manage authentication behavior and user access.<br><br>
+With user accounts successfully created, the final phase focuses on enforcing security policies and performing administrative account management tasks. This phase demonstrates how Group Policy and Active Directory tools are used to manage authentication behavior and user access.<br>
 
 <h3>Launch Group Policy Management Console</h3>
 <img width="1536" height="1024" alt="LabC5" src="https://github.com/user-attachments/assets/c0e28256-0003-47f4-b28b-abd1c081e332" />
@@ -435,7 +435,7 @@ Verify that the user is listed in the search results.
 **Explanation:** This step is used to locate the specific user account before performing administrative tasks. It reflects a standard help desk procedure for quickly accessing user information in Active Directory.
 
 <h3>Disable User Account</h3>
-![LabC30](https://github.com/user-attachments/assets/f19368a0-7f79-48ea-9eb1-30749799bc1c)
+![LabC30](https://github.com/user-attachments/assets/f2aec85d-7d53-4add-a31f-75cfdf35cc72)
 
 **Steps:**
 Right-click the account to open the context menu.
