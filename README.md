@@ -388,8 +388,8 @@ With user accounts successfully created, the final phase focuses on enforcing se
 <img width="1536" height="1024" alt="LabC5" src="https://github.com/user-attachments/assets/c0e28256-0003-47f4-b28b-abd1c081e332" />
 
 **Steps:**
-Wait until the **Group Policy Management Console** finishes opening.
-Confirm that the console shows **Forest: mydomain.com.**
+- Wait until the **Group Policy Management Console** finishes opening.
+- Confirm that the console shows **Forest: mydomain.com.**
 
 **Explanation:** This confirms that the Group Policy tools are available and properly connected to the Active Directory environment. It also shows that the domain is ready for policy administration.
 
@@ -397,14 +397,14 @@ Confirm that the console shows **Forest: mydomain.com.**
 <img width="1079" height="520" alt="LabC14" src="https://github.com/user-attachments/assets/caffddcb-2f00-4212-844b-63e517296504" />
 
 **Steps:**
-Launch the **Default Domain Policy** in the Group Policy Management Editor.
-Navigate to:<br>
+- Launch the **Default Domain Policy** in the Group Policy Management Editor.
+- Navigate to:<br>
 **↳ Computer Configuration**<br>
 **↳ Policies**<br> 
 **↳ Windows Settings**<br> 
 **↳ Security Settings**<br> 
 **↳ Account Policies**<br> 
-**↳ Account Lockout Policy**<br>
+**↳ Account Lockout Policy**
 - Set the following options: 
 - **Account lockout duration: 30 minutes** 
 - **Account lockout threshold: 5 invalid logon attempts** 
