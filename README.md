@@ -41,11 +41,11 @@ In the first phase of the project, the Azure environment is prepared to support 
 <img width="1536" height="810" alt="Lab2" src="https://github.com/user-attachments/assets/4757bbd3-b46a-4d7a-9ee4-7688b4fb4526" />
 
 **Steps:**
-Select the appropriate Azure subscription.
-Enter the resource group name **Active-Directory-Lab.**
-Choose the region **Canada Central.
-Review the settings.**
-Continue to create the resource group.
+- Select the appropriate Azure subscription.
+- Enter the resource group name **Active-Directory-Lab.**
+- Choose the region **Canada Central.**
+- Review the settings.
+- Continue to create the resource group.
 
 **Explanation:** This creates a dedicated container for all resources used in the lab, including virtual machines and networking components.
 
@@ -53,27 +53,27 @@ Continue to create the resource group.
 <img width="1536" height="802" alt="Lab4" src="https://github.com/user-attachments/assets/d45859f8-c036-4688-80c4-dbf86a0a1ba8" />
 
 **Steps:**
-Launch **Virtual networks** in Azure.
-Select **Create.**
-Assign the network to the **Active-Directory-Lab** resource group.
-Enter the virtual network name **Active-Directory-VNet.**
-Verify the region matches the resource group.
-Review the default IP address space and subnet settings.
-Click **Create.**
+- Launch **Virtual networks** in Azure.
+- Select **Create.**
+- Assign the network to the **Active-Directory-Lab** resource group.
+- Enter the virtual network name **Active-Directory-VNet.**
+- Verify the region matches the resource group.
+- Review the default IP address space and subnet settings.
+- Click **Create.**
 
 **Explanation:** The virtual network allows the domain controller and client machine to communicate privately inside Azure. This is required for domain communication and DNS resolution.
 
 <h3>Configure dc-1 Operating System and Credentials</h3>
 <img width="1536" height="865" alt="Lab6" src="https://github.com/user-attachments/assets/1de4a86a-f325-4684-83e6-2b4f6bcff879" />
 
-**Steps:**
-Begin creating the **dc-1** virtual machine.
-Select **Windows Server 2022 Datacenter Azure Edition** as the image.
-Confirm the VM architecture is set to **x64.**
-Select the VM size for the lab.
-Enter the administrator username.
-Enter and confirm the administrator password.
-Continue through the setup wizard.
+**Steps:**<br>
+- Begin creating the **dc-1** virtual machine.
+- Select **Windows Server 2022 Datacenter Azure Edition** as the image.
+- Confirm the VM architecture is set to **x64.**
+- Select the VM size for the lab.
+- Enter the administrator username.
+- Enter and confirm the administrator password.
+- Continue through the setup wizard.
 
 **Explanation:** This step confirms that the server is deployed with a supported Windows Server operating system capable of running Active Directory Domain Services.
 
@@ -81,13 +81,13 @@ Continue through the setup wizard.
 <img width="1536" height="862" alt="Lab7" src="https://github.com/user-attachments/assets/0121f196-2133-4e4a-957b-b5b631e7311c" />
 
 **Steps:**
-Open the **Networking** tab during the **dc-1** VM creation.
-Select **Active-Directory-VNet** as the virtual network.
-Choose the default subnet.
-Assign a public IP address for remote access.
-Set the network security group options.
-Allow **RDP (3389)** inbound access.
-Review the settings before deployment.
+- Open the **Networking** tab during the **dc-1** VM creation.
+- Select **Active-Directory-VNet** as the virtual network.
+- Choose the default subnet.
+- Assign a public IP address for remote access.
+- Set the network security group options.
+- Allow **RDP (3389)** inbound access.
+- Review the settings before deployment.
 
 **Explanation:** This ensures that **dc-1** is connected to the lab environment and can be remotely accessed and managed through Remote Desktop.
 
