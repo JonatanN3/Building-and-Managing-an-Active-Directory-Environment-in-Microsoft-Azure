@@ -92,7 +92,7 @@ In the first phase of the project, the Azure environment is prepared to support 
 **Explanation:** This ensures that **dc-1** is connected to the lab environment and can be remotely accessed and managed through Remote Desktop.
 
 <h3>Configure DC-1 Private IP Address</h3>
-<img width="1536" height="1024" alt="Lab12" src="https://github.com/user-attachments/assets/d329bb7f-c083-47af-a65e-35aa0af4594a" />
+<img width="1536" height="864" alt="Lab12" src="https://github.com/user-attachments/assets/4979250a-688c-43da-be2e-a5e4805c8f88" />
 
 **Steps:**
 - Locate the Network Interface settings for the **dc-1** virtual machine.
