@@ -25,9 +25,9 @@ This project demonstrates the full lifecycle of building, deploying, automating,
 - Windows 11 Pro (Version 25H2-x64)
 
 <h2>Phase 1: Azure Infrastructure Setup</h2>
-In the first phase of the project, the Azure environment is prepared to support the Active Directory deployment. A dedicated resource group and virtual network are created, two virtual machines are deployed, and connectivity is verified to ensure the environment is ready for domain services.
-  
-**Open Resource Groups in Azure**
+In the first phase of the project, the Azure environment is prepared to support the Active Directory deployment. A dedicated resource group and virtual network are created, two virtual machines are deployed, and connectivity is verified to ensure the environment is ready for domain services.<br>
+ 
+<h3>Open Resource Groups in Azure</h3>
 <img width="1536" height="808" alt="Lab1" src="https://github.com/user-attachments/assets/d5981229-5ad8-4dd8-b33f-4c7580fac3eb" />
 
 **Steps:**
@@ -37,7 +37,7 @@ In the first phase of the project, the Azure environment is prepared to support 
 
 **Explanation:** A resource group is used to organize related Azure resources in one location. Creating it first keeps all lab components structured and easier to manage.
 
-**Create the Resource Group**
+<h3>Create the Resource Group</h3>
 <img width="1536" height="810" alt="Lab2" src="https://github.com/user-attachments/assets/4757bbd3-b46a-4d7a-9ee4-7688b4fb4526" />
 
 **Steps:**
@@ -49,7 +49,7 @@ Continue to create the resource group.
 
 **Explanation:** This creates a dedicated container for all resources used in the lab, including virtual machines and networking components.
 
-**Create the Virtual Network**
+<h3>Create the Virtual Network</h3>
 <img width="1536" height="802" alt="Lab4" src="https://github.com/user-attachments/assets/d45859f8-c036-4688-80c4-dbf86a0a1ba8" />
 
 **Steps:**
@@ -63,7 +63,7 @@ Click **Create.**
 
 **Explanation:** The virtual network allows the domain controller and client machine to communicate privately inside Azure. This is required for domain communication and DNS resolution.
 
-**Configure dc-1 Operating System and Credentials**
+<h3>Configure dc-1 Operating System and Credentials</h3>
 <img width="1536" height="865" alt="Lab6" src="https://github.com/user-attachments/assets/1de4a86a-f325-4684-83e6-2b4f6bcff879" />
 
 **Steps:**
@@ -77,7 +77,7 @@ Continue through the setup wizard.
 
 **Explanation:** This step confirms that the server is deployed with a supported Windows Server operating system capable of running Active Directory Domain Services.
 
-**Configure Networking for dc-1**
+<h3>Configure Networking for dc-1</h3>
 <img width="1536" height="862" alt="Lab7" src="https://github.com/user-attachments/assets/0121f196-2133-4e4a-957b-b5b631e7311c" />
 
 **Steps:**
@@ -91,7 +91,7 @@ Review the settings before deployment.
 
 **Explanation:** This ensures that **dc-1** is connected to the lab environment and can be remotely accessed and managed through Remote Desktop.
 
-**Configure DC-1 Private IP Address**
+<h3>Configure DC-1 Private IP Address</h3>
 <img width="1536" height="1024" alt="Lab12" src="https://github.com/user-attachments/assets/d329bb7f-c083-47af-a65e-35aa0af4594a" />
 
 **Steps:**
@@ -105,7 +105,7 @@ Save the configuration changes.
 
 **Explanation:** This step ensures that the domain controller maintains a consistent private IP address, which is critical for reliable DNS services and proper communication within the Active Directory environment.
 
-**Begin Creating the Client VM**
+<h3>Begin Creating the Client VM</h3>
 <img width="1536" height="859" alt="Lab8" src="https://github.com/user-attachments/assets/42f7c013-42e8-41d7-bb22-4d2ddb15d5cb" />
 
 **Steps:**
@@ -117,7 +117,7 @@ Review the basic configuration settings.
 
 **Explanation:** This machine is created to simulate a workstation that will later connect to and join the domain.
 
-**Configure Networking for Client-1**
+<h3>Configure Networking for Client-1</h3>
 <img width="1536" height="856" alt="Lab10" src="https://github.com/user-attachments/assets/2cb1c0fc-61f9-4ac0-bddb-957722cfbba1" />
 
 **Steps:**
@@ -131,7 +131,7 @@ Continue with the deployment.
 
 **Explanation:** This confirms that **Client-1** is placed on the same virtual network as **dc-1** so both machines can communicate internally.
 
-**Begin Connectivity Testing from Client-1**
+<h3>Begin Connectivity Testing from Client-1</h3>
 <img width="1512" height="870" alt="Lab23" src="https://github.com/user-attachments/assets/55a59e50-0502-480a-9ca3-c0aa2df7c239" />
 
 **Steps:**
@@ -142,7 +142,7 @@ Run the command to test connectivity to the domain controller.
 
 **Explanation:** This test verifies network connectivity between **Client-1** and the domain controller **(dc-1).** Successful ping responses confirm that the client machine can reach the server across the private network.
 
-**Verify Network Connectivity and DNS Settings**
+<h3>Verify Network Connectivity and DNS Settings</h3> 
 <img width="1118" height="638" alt="Lab24" src="https://github.com/user-attachments/assets/9143647e-3b0d-46a3-a30f-c6e1ebd33cbf" />
 
 **Steps:**
@@ -155,9 +155,9 @@ Confirm the DNS server setting points to **10.0.0.4.**
 **Explanation:** This final verification confirms that **Client-1** can communicate with **dc-1** and that the DNS settings are correctly configured to point to the domain controller. That completes the infrastructure setup required before deploying Active Directory.
 
 <h2>Phase 2: Active Directory Domain Services Deployment</h2>
-With the Azure infrastructure in place, the next phase focuses on installing and configuring Active Directory Domain Services, promoting the server to a Domain Controller, creating the domain environment, and joining the client machine to the domain.
+With the Azure infrastructure in place, the next phase focuses on installing and configuring Active Directory Domain Services, promoting the server to a Domain Controller, creating the domain environment, and joining the client machine to the domain.<br><br>
 
-**Server Manager Dashboard**
+<h3>Server Manager Dashboard</h3>
 <img width="1536" height="1024" alt="LabA1" src="https://github.com/user-attachments/assets/6b96491b-0e18-465b-afc9-7b25748927f9" />
 
 **Steps:**
@@ -170,7 +170,7 @@ Prepare to begin installing the Active Directory Domain Services role.
 
 **Explanation:** This shows the starting point of the server configuration process. Server Manager is the primary tool used to install roles and features on Windows Server, including Active Directory Domain Services.
 
-**Select Active Directory Domain Services**
+<h3>Select Active Directory Domain Services</h3>
 <img width="1536" height="1024" alt="LabA4" src="https://github.com/user-attachments/assets/f6103495-8246-45eb-9e0d-6c716f28cfdf" />
 
 **Steps:**
@@ -183,7 +183,7 @@ Prepare to continue with the required supporting features.
 
 **Explanation:** This step selects the core server role required to build an Active Directory environment. Choosing Active Directory Domain Services allows the server to later be promoted into a Domain Controller.
 
-**Confirm Installation Selections**
+<h3>Confirm Installation Selections</h3>
 <img width="1536" height="1024" alt="LabA10" src="https://github.com/user-attachments/assets/4f83d00c-3e1d-4dda-9a2e-db404f27e953" />
 
 **Steps:**
@@ -198,7 +198,7 @@ Click **Install.**
 
 **Explanation:** This step confirms the final set of components required for Active Directory Domain Services. Installing these features is a necessary step toward configuring the Windows Server as an operational Domain Controller.
 
-**Promote This Server to a Domain Controller**
+<h3>Promote This Server to a Domain Controller</h3>
 <img width="1536" height="1024" alt="LabA14" src="https://github.com/user-attachments/assets/5a117b73-88ea-4cfb-89d9-79b4cea80841" />
 
 **Steps:**
@@ -211,7 +211,7 @@ Select the promotion link to begin the Active Directory Domain Services Configur
 
 **Explanation:** Promoting the server to a Domain Controller configures it to run Active Directory and manage the domain. This allows the server to control user accounts, computers, and security policies across the network.
 
-**Configure a New Forest**
+<h3>Configure a New Forest</h3>
 <img width="1536" height="1024" alt="LabA15" src="https://github.com/user-attachments/assets/8480e66e-235d-47ce-81ee-3fd36f19380d" />
 
 **Steps:**
@@ -225,7 +225,7 @@ Click **Next** to continue.
 
 **Explanation:** During this step, a new Active Directory forest is created and the root domain is defined. The forest serves as the top-level container of the directory structure, while the root domain acts as the primary administrative control point for the network.
 
-**Configure Domain Controller Options**
+<h3>Configure Domain Controller Options</h3>
 <img width="1536" height="1024" alt="LabA16" src="https://github.com/user-attachments/assets/52529dfa-aaf9-43ad-acb6-8477cf15717c" />
 
 **Steps:**
@@ -241,7 +241,7 @@ Select **Next** to continue.
 
 **Explanation:** This step defines important domain controller settings. It enables DNS integration, confirms the server’s role in the domain, and sets the DSRM password used for recovery and maintenance of Active Directory services.
 
-**Prerequisites Check**
+<h3>Prerequisites Check</h3>
 <img width="1536" height="1024" alt="LabA19" src="https://github.com/user-attachments/assets/3df541c6-c897-4b18-876e-9cc1955a123d" />
 
 **Steps:**
@@ -256,7 +256,7 @@ Click **Install.**
 
 **Explanation:** This step checks the server’s readiness to become a Domain Controller. The wizard validates required settings, confirms prerequisites are met, and alerts you to any warnings or errors before the promotion process starts.
 
-**Domain Controller Promotion Complete**
+<h3>Domain Controller Promotion Complete</h3>
 <img width="1536" height="1024" alt="LabA21" src="https://github.com/user-attachments/assets/fa23c6a3-33b9-43cc-8e1d-7549c561fed7" />
 
 **Steps:**
@@ -269,7 +269,7 @@ Allow the restart process to continue.
 
 **Explanation:** This step indicates that the Domain Controller promotion process has finished successfully. Restarting the server finalizes the configuration and allows Active Directory Domain Services to begin operating.
 
-**Verify Domain Presence in ADUC**
+<h3>Verify Domain Presence in ADUC</h3>
 <img width="1536" height="1024" alt="LabA26" src="https://github.com/user-attachments/assets/e4e3a5df-eda0-4701-89af-d648d5bf098a" />
 
 **Steps:**
@@ -281,7 +281,7 @@ Confirm that the domain is listed and accessible in the console.
 
 **Explanation:** This step confirms that the Active Directory domain is successfully created and visible within the Active Directory Users and Computers console. Seeing the domain listed indicates that the Domain Controller is properly managing the directory environment and is ready for administrative tasks.
 
-**Create Organizational Unit**
+<h3>Create Organizational Unit</h3>
 <img width="1536" height="1024" alt="LabA27" src="https://github.com/user-attachments/assets/170a91de-5cac-49c7-bc6d-cdb3300cee6c" />
 
 **Steps:**
@@ -297,7 +297,7 @@ Click **OK** to create the Organizational Unit.
 
 **Explanation:** An Organizational Unit is created to organize and manage user accounts within the domain. OUs allow administrators to structure resources logically and make it easier to delegate administrative tasks and apply group policies.
 
-**Join Client-1 to the Domain**
+<h3>Join Client-1 to the Domain</h3>
 <img width="1536" height="1024" alt="LabA31" src="https://github.com/user-attachments/assets/332db8fe-4c28-41c1-9c6f-27d9fd85ab3f" />
 
 **Steps:**
@@ -314,7 +314,7 @@ Click **OK.**
 **Explanation:** By joining the workstation to the domain, it becomes part of the Active Directory environment. This integration allows administrators to manage the computer, apply group policies, and provide users with domain-based sign-in access.
 
 <h2>Phase 3: Automating User Creation with PowerShell</h2>
-After establishing the domain environment, the next phase focuses on automating user account creation using PowerShell. This demonstrates how repetitive administrative tasks can be completed more efficiently and consistently through scripting.
+After establishing the domain environment, the next phase focuses on automating user account creation using PowerShell. This demonstrates how repetitive administrative tasks can be completed more efficiently and consistently through scripting.<br><br>
 
 **Open and Review the PowerShell Script**
 <img width="1536" height="1024" alt="LabB5" src="https://github.com/user-attachments/assets/68ebdb74-5546-4aa7-ad3b-8037a289df22" />
@@ -382,7 +382,7 @@ Confirm that the user profile begins initializing and that the account gains acc
 **Explanation:** This step serves as the final validation of the automation process. Successful sign-in confirms that the generated accounts are functional, properly authenticated through Active Directory, and able to access system resources as expected.
 
 <h2>Phase 4: Group Policy Configuration and Account Management</h2>
-With user accounts successfully created, the final phase focuses on enforcing security policies and performing administrative account management tasks. This phase demonstrates how Group Policy and Active Directory tools are used to manage authentication behavior and user access.
+With user accounts successfully created, the final phase focuses on enforcing security policies and performing administrative account management tasks. This phase demonstrates how Group Policy and Active Directory tools are used to manage authentication behavior and user access.<br><br>
 
 **Launch Group Policy Management Console**
 <img width="1536" height="1024" alt="LabC5" src="https://github.com/user-attachments/assets/c0e28256-0003-47f4-b28b-abd1c081e332" />
