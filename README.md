@@ -348,11 +348,11 @@ After establishing the domain environment, the next phase focuses on automating 
 <img width="1536" height="1024" alt="LabB8" src="https://github.com/user-attachments/assets/f19c81f3-63a5-4b0b-9295-3db5b87707f5" />
 
 **Steps:**
-Select **Run Script** within Windows PowerShell ISE to execute the script.
-Observe the console output displayed in the lower pane.
-Check for messages such as **Creating user** to confirm activity.
-Ensure that usernames are being generated one after another without interruption.
-Allow the script to run until the entire user creation process is complete.
+- Select **Run Script** within Windows PowerShell ISE to execute the script.
+- Observe the console output displayed in the lower pane.
+- Check for messages such as **Creating user** to confirm activity.
+- Ensure that usernames are being generated one after another without interruption.
+- Allow the script to run until the entire user creation process is complete.
 
 **Explanation:** This step validates that the automation is functioning correctly. Monitoring the console output shows that each user account is being generated as intended, confirming accurate script execution.
 
@@ -360,11 +360,11 @@ Allow the script to run until the entire user creation process is complete.
 <img width="1536" height="1024" alt="LabB11" src="https://github.com/user-attachments/assets/dba3d0f5-4522-49b0-be9b-76f5e64f04b3" />
 
 **Steps:**
-Open **Active Directory Users and Computers** from the administrative tools.
-Expand the domain in the left-hand pane to view available Organizational Units.
-Select the **_EMPLOYEES** Organizational Unit.
-Review the list of users shown in the main pane.
-Choose a user account that will be used for sign-in testing.
+- Open **Active Directory Users and Computers** from the administrative tools.
+- Expand the domain in the left-hand pane to view available Organizational Units.
+- Select the **_EMPLOYEES** Organizational Unit.
+- Review the list of users shown in the main pane.
+- Choose a user account that will be used for sign-in testing.
 
 **Explanation:** This is the proof stage of the automation workflow. It confirms that the accounts are successfully written into Active Directory and stored in the correct Organizational Unit.
 
@@ -372,12 +372,12 @@ Choose a user account that will be used for sign-in testing.
 <img width="1536" height="1024" alt="LabB16" src="https://github.com/user-attachments/assets/22022801-22a3-49a9-af90-215ea751766d" />
 
 **Steps:**
-Log in to the client computer or connect through Remote Desktop.
-Enter the username of one of the generated accounts.
-Type the password specified in the script.
-Start the sign-in process using the domain user credentials.
-Wait for the sign-in process to finish completely.
-Confirm that the user profile begins initializing and that the account gains access to the system.
+- Log in to the client computer or connect through Remote Desktop.
+- Enter the username of one of the generated accounts.
+- Type the password specified in the script.
+- Start the sign-in process using the domain user credentials.
+- Wait for the sign-in process to finish completely.
+- Confirm that the user profile begins initializing and that the account gains access to the system.
 
 **Explanation:** This step serves as the final validation of the automation process. Successful sign-in confirms that the generated accounts are functional, properly authenticated through Active Directory, and able to access system resources as expected.
 
@@ -398,18 +398,18 @@ Confirm that the console shows **Forest: mydomain.com.**
 
 **Steps:**
 Launch the **Default Domain Policy** in the Group Policy Management Editor.
-Navigate to: 
-**↳ Computer Configuration** 
-**↳ Policies** 
-**↳ Windows Settings** 
-**↳ Security Settings** 
-**↳ Account Policies** 
-**↳ Account Lockout Policy**
-Set the following options: 
-**Account lockout duration: 30 minutes** 
-**Account lockout threshold: 5 invalid logon attempts** 
-**Allow Administrator account lockout: Enabled** 
-**Reset account lockout counter after: 10 minutes**
+Navigate to:<br>
+**↳ Computer Configuration**<br>
+**↳ Policies**<br> 
+**↳ Windows Settings**<br> 
+**↳ Security Settings**<br> 
+**↳ Account Policies**<br> 
+**↳ Account Lockout Policy**<br>
+- Set the following options: 
+- **Account lockout duration: 30 minutes** 
+- **Account lockout threshold: 5 invalid logon attempts** 
+- **Allow Administrator account lockout: Enabled** 
+- **Reset account lockout counter after: 10 minutes**
 
 **Explanation:** This step configures the account lockout settings to strengthen security for domain accounts. It helps prevent unauthorized access by locking accounts after multiple failed sign-in attempts.
 
@@ -417,9 +417,9 @@ Set the following options:
 <img width="556" height="116" alt="LabC17" src="https://github.com/user-attachments/assets/d1c9aa15-a9da-42c5-8057-8fe3d123ed60" />
 
 **Steps:**
-On the client machine, attempt to sign in multiple times using incorrect credentials for the target user.
-Repeat the attempts until the account reaches the lockout threshold.
-Observe and note the error message displayed by Remote Desktop.
+- On the client machine, attempt to sign in multiple times using incorrect credentials for the target user.
+- Repeat the attempts until the account reaches the lockout threshold.
+- Observe and note the error message displayed by Remote Desktop.
 
 **Explanation:** This step verifies proper enforcement of the account lockout settings. The error message shows that the account is temporarily restricted after repeated invalid sign-in attempts.
 
@@ -427,10 +427,10 @@ Observe and note the error message displayed by Remote Desktop.
 <img width="1536" height="1024" alt="LabC24" src="https://github.com/user-attachments/assets/97d17ea5-083a-432e-8ce1-52de728beea4" />
 
 **Steps:**
-Launch **Active Directory Users and Computers.**
-Use the **Find Users, Contacts, and Groups tool.**
-Search for **bab.pok** in the **Name** box.
-Verify that the user is listed in the search results.
+- Launch **Active Directory Users and Computers.**
+- Use the **Find Users, Contacts, and Groups tool.**
+- Search for **bab.pok** in the **Name** box.
+- Verify that the user is listed in the search results.
 
 **Explanation:** This step is used to locate the specific user account before performing administrative tasks. It reflects a standard help desk procedure for quickly accessing user information in Active Directory.
 
@@ -438,9 +438,9 @@ Verify that the user is listed in the search results.
 <img width="1151" height="793" alt="Screenshot (77)" src="https://github.com/user-attachments/assets/89ad376e-dc2a-442b-8c2e-aaa8fc122d02" />
 
 **Steps:**
-Right-click the account to open the context menu.
-Click **Disable Account.**
-Acknowledge any confirmation prompt if it appears.
+- Right-click the account to open the context menu.
+- Click **Disable Account.**
+- Acknowledge any confirmation prompt if it appears.
 
 **Explanation:** Disabling a user account is a standard administrative action that immediately blocks access to the domain. This is commonly performed when an account should no longer be used temporarily, such as during security incidents, offboarding, or account troubleshooting, while still preserving the account and its associated data.
 
@@ -448,22 +448,22 @@ Acknowledge any confirmation prompt if it appears.
 <img width="1512" height="982" alt="LabC32" src="https://github.com/user-attachments/assets/2cf90d8c-57af-47a1-a419-794884171726" />
 
 **Steps:**
-Sign in to the client PC with an administrative account.
-Open the **Command Prompt** application.
-Type and run: **gpupdate /force**
-Verify that the update completes for both **Computer** and **User** policies.
+- Sign in to the client PC with an administrative account.
+- Open the **Command Prompt** application.
+- Type and run: **gpupdate /force**
+- Verify that the update completes for both **Computer** and **User** policies.
 
 **Explanation:** This forces the client machine to retrieve and apply the latest Group Policy settings immediately. It is an important validation step because it ensures policy changes are active without waiting for the normal background refresh cycle.
 
 <h2>Summary</h2>
 This project demonstrates an end-to-end implementation of Active Directory in a cloud-based environment. Beginning with Azure infrastructure setup, the project progresses through domain deployment, automation of user creation, and enforcement of security policies.
 
-By completing this project, the following IT skills are demonstrated:
-Azure infrastructure deployment
-Active Directory configuration
-PowerShell automation
-Group Policy administration
-User and access management
-Network and DNS validation
+By completing this project, the following IT skills are demonstrated:<br>
+- **Azure infrastructure deployment**
+- **Active Directory configuration**
+- **PowerShell automation**
+- **Group Policy administration**
+- **User and access management**
+- **Network and DNS validation**
 
 This project reflects real-world system administration tasks and showcases the ability to design, implement, automate, and manage an enterprise-style Active Directory environment.
