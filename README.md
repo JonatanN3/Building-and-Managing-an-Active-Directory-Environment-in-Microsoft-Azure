@@ -435,7 +435,7 @@ Verify that the user is listed in the search results.
 **Explanation:** This step is used to locate the specific user account before performing administrative tasks. It reflects a standard help desk procedure for quickly accessing user information in Active Directory.
 
 <h3>Disable User Account</h3>
-<img width="1536" height="834" alt="Screenshot (77)" src="https://github.com/user-attachments/assets/5b0f8f11-79bc-4adf-994a-ae7061df31be" />
+<img width="1151" height="793" alt="Screenshot (77)" src="https://github.com/user-attachments/assets/89ad376e-dc2a-442b-8c2e-aaa8fc122d02" />
 
 **Steps:**
 Right-click the account to open the context menu.
