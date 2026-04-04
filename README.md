@@ -19,7 +19,7 @@ This project demonstrates the full lifecycle of building, deploying, automating,
 - Windows PowerShell
 - PowerShell ISE
 
-<h2>Operating Systems Used </h2>
+<h2>Operating Systems Used</h2>
 
 - Windows Server 2022 (Datacenter Azure Edition Hotpatch-x64 Gen2)
 - Windows 11 Pro (Version 25H2-x64)
@@ -316,7 +316,7 @@ Click **OK.**
 <h2>Phase 3: Automating User Creation with PowerShell</h2>
 After establishing the domain environment, the next phase focuses on automating user account creation using PowerShell. This demonstrates how repetitive administrative tasks can be completed more efficiently and consistently through scripting.<br><br>
 
-**Open and Review the PowerShell Script**
+<h3>Open and Review the PowerShell Script</h3>
 <img width="1536" height="1024" alt="LabB5" src="https://github.com/user-attachments/assets/68ebdb74-5546-4aa7-ad3b-8037a289df22" />
 
 **Steps:**
@@ -329,7 +329,7 @@ Review the overall script layout to ensure everything is correct before running 
 
 **Explanation:** This step represents the review stage of the automation process. Examining the script before execution helps confirm that the configuration is correct and that the user creation process will run as intended without errors.
 
-**Review New-ADUser Automation Logic**
+<h3>Review New-ADUser Automation Logic</h3>
 <img width="1536" height="1024" alt="LabB7" src="https://github.com/user-attachments/assets/bb47966b-8f75-4758-937d-1bb344f2917d" />
 
 **Steps:**
@@ -344,7 +344,7 @@ Verify that all newly created accounts are set to active **(enabled).**
 
 **Explanation:** This step demonstrates the practical use of scripting for scalability. Automating user creation allows administrators to quickly deploy large numbers of accounts while maintaining standardized configurations and minimizing human error.
 
-**Execute the Script and Create Users**
+<h3>Execute the Script and Create Users</h3>
 <img width="1536" height="1024" alt="LabB8" src="https://github.com/user-attachments/assets/f19c81f3-63a5-4b0b-9295-3db5b87707f5" />
 
 **Steps:**
@@ -356,7 +356,7 @@ Allow the script to run until the entire user creation process is complete.
 
 **Explanation:** This step validates that the automation is functioning correctly. Monitoring the console output shows that each user account is being generated as intended, confirming accurate script execution.
 
-**Verify Accounts in ADUC**
+<h3>Verify Accounts in ADUC</h3>
 <img width="1536" height="1024" alt="LabB11" src="https://github.com/user-attachments/assets/dba3d0f5-4522-49b0-be9b-76f5e64f04b3" />
 
 **Steps:**
@@ -368,7 +368,7 @@ Choose a user account that will be used for sign-in testing.
 
 **Explanation:** This is the proof stage of the automation workflow. It confirms that the accounts are successfully written into Active Directory and stored in the correct Organizational Unit.
 
-**Confirm Successful Login**
+<h3>Confirm Successful Login</h3>
 <img width="1536" height="1024" alt="LabB16" src="https://github.com/user-attachments/assets/22022801-22a3-49a9-af90-215ea751766d" />
 
 **Steps:**
@@ -384,7 +384,7 @@ Confirm that the user profile begins initializing and that the account gains acc
 <h2>Phase 4: Group Policy Configuration and Account Management</h2>
 With user accounts successfully created, the final phase focuses on enforcing security policies and performing administrative account management tasks. This phase demonstrates how Group Policy and Active Directory tools are used to manage authentication behavior and user access.<br><br>
 
-**Launch Group Policy Management Console**
+<h3>Launch Group Policy Management Console</h3>
 <img width="1536" height="1024" alt="LabC5" src="https://github.com/user-attachments/assets/c0e28256-0003-47f4-b28b-abd1c081e332" />
 
 **Steps:**
@@ -393,7 +393,7 @@ Confirm that the console shows **Forest: mydomain.com.**
 
 **Explanation:** This confirms that the Group Policy tools are available and properly connected to the Active Directory environment. It also shows that the domain is ready for policy administration.
 
-**Configure Account Lockout Policy**
+<h3>Configure Account Lockout Policy</h3>
 <img width="1079" height="520" alt="LabC14" src="https://github.com/user-attachments/assets/caffddcb-2f00-4212-844b-63e517296504" />
 
 **Steps:**
@@ -413,7 +413,7 @@ Set the following options:
 
 **Explanation:** This step configures the account lockout settings to strengthen security for domain accounts. It helps prevent unauthorized access by locking accounts after multiple failed sign-in attempts.
 
-**Verify Account Lockout from Client Side**
+<h3>Verify Account Lockout from Client Side</h3>
 <img width="556" height="116" alt="LabC17" src="https://github.com/user-attachments/assets/d1c9aa15-a9da-42c5-8057-8fe3d123ed60" />
 
 **Steps:**
@@ -423,7 +423,7 @@ Observe and note the error message displayed by Remote Desktop.
 
 **Explanation:** This step verifies proper enforcement of the account lockout settings. The error message shows that the account is temporarily restricted after repeated invalid sign-in attempts.
 
-**Search for User Account**
+<h3>Search for User Account</h3>
 <img width="1536" height="1024" alt="LabC24" src="https://github.com/user-attachments/assets/97d17ea5-083a-432e-8ce1-52de728beea4" />
 
 **Steps:**
@@ -434,7 +434,7 @@ Verify that the user is listed in the search results.
 
 **Explanation:** This step is used to locate the specific user account before performing administrative tasks. It reflects a standard help desk procedure for quickly accessing user information in Active Directory.
 
- **Disable User Account**
+<h3>Disable User Account</h3>
 ![LabC30](https://github.com/user-attachments/assets/f19368a0-7f79-48ea-9eb1-30749799bc1c)
 
 **Steps:**
@@ -444,7 +444,7 @@ Acknowledge any confirmation prompt if it appears.
 
 **Explanation:** Disabling a user account is a standard administrative action that immediately blocks access to the domain. This is commonly performed when an account should no longer be used temporarily, such as during security incidents, offboarding, or account troubleshooting, while still preserving the account and its associated data.
 
- **Refresh Group Policy on Client**
+<h3>Refresh Group Policy on Client</h3>
 <img width="1512" height="982" alt="LabC32" src="https://github.com/user-attachments/assets/2cf90d8c-57af-47a1-a419-794884171726" />
 
 **Steps:**
