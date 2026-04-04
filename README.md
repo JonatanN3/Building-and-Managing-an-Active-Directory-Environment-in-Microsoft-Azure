@@ -23,6 +23,9 @@ This project demonstrates the full lifecycle of building, deploying, automating,
 
 - Windows Server 2022 (Datacenter Azure Edition Hotpatch-x64 Gen2)
 - Windows 11 Pro (Version 25H2-x64)
+
+<h2>Phase 1: Azure Infrastructure Setup</h2>
+In the first phase of the project, the Azure environment is prepared to support the Active Directory deployment. A dedicated resource group and virtual network are created, two virtual machines are deployed, and connectivity is verified to ensure the environment is ready for domain services.
   
 **Open Resource Groups in Azure**
 <img width="1536" height="808" alt="Lab1" src="https://github.com/user-attachments/assets/d5981229-5ad8-4dd8-b33f-4c7580fac3eb" />
