@@ -407,11 +407,11 @@ With user accounts successfully created, the final phase focuses on enforcing se
 **↳ Security Settings**<br> 
 **↳ Account Policies**<br> 
 **↳ Account Lockout Policy**
-- Set the following options: 
-- **Account lockout duration: 30 minutes** 
-- **Account lockout threshold: 5 invalid logon attempts** 
-- **Allow Administrator account lockout: Enabled** 
-- **Reset account lockout counter after: 10 minutes**
+- Set the following options:<br> 
+**Account lockout duration: 30 minutes**<br> 
+**Account lockout threshold: 5 invalid logon attempts**<br> 
+**Allow Administrator account lockout: Enabled**<br> 
+**Reset account lockout counter after: 10 minutes**<br>
 
 **Explanation:** This step configures the account lockout settings to strengthen security for domain accounts. It helps prevent unauthorized access by locking accounts after multiple failed sign-in attempts.
 
