@@ -214,7 +214,7 @@ With the Azure infrastructure in place, the next phase focuses on installing and
 **Explanation:** Promoting the server to a Domain Controller configures it to run Active Directory and manage the domain. This allows the server to control user accounts, computers, and security policies across the network.
 
 <h3>Configure a New Forest</h3>
-<img width="1536" height="1024" alt="LabA15" src="https://github.com/user-attachments/assets/8480e66e-235d-47ce-81ee-3fd36f19380d" />
+<img width="1512" height="982" alt="LabA15" src="https://github.com/user-attachments/assets/555b847a-3bf5-42b5-89fc-c7d9884c8ae6" />
 
 **Steps:**
 - Open the Active Directory Domain Services Configuration Wizard from Server Manager.
