@@ -1,12 +1,7 @@
 <h1>Building and Managing an Active Directory Environment in Microsoft Azure</h1>
 
-<p align="center">
-<img width="600" height="335" alt="image" src="https://github.com/user-attachments/assets/f5a3d652-196e-4dcf-814f-113a9cbb6f54" />
-
-<hr>
-
 <h2>Overview</h2>
-This project demonstrates the full lifecycle of building, deploying, automating, and managing an Active Directory environment in Microsoft Azure. The implementation follows a structured approach that begins with infrastructure setup, continues through domain deployment, expands into user account automation with PowerShell, and concludes with security enforcement through Group Policy and account management.
+End-to-end implementation of an Active Directory environment in Microsoft Azure, including virtual infrastructure deployment, domain services configuration, PowerShell-based user automation, and security enforcement using Group Policy.
 
 <h2>Environments and Technologies Used</h2>
 
@@ -458,14 +453,15 @@ With user accounts successfully created, the final phase focuses on enforcing se
 **Explanation:** This forces the client machine to retrieve and apply the latest Group Policy settings immediately. It is an important validation step because it ensures policy changes are active without waiting for the normal background refresh cycle.
 
 <h2>Summary</h2>
-This project demonstrates an end-to-end implementation of Active Directory in a cloud-based environment. Beginning with Azure infrastructure setup, the project progresses through domain deployment, automation of user creation, and enforcement of security policies.
+This project demonstrates an end-to-end implementation of Active Directory in a cloud-based Azure environment. It covers infrastructure deployment, domain services configuration, automated user provisioning, and security policy enforcement.
 
-By completing this project, the following IT skills are demonstrated:<br>
-- **Azure infrastructure deployment**
-- **Active Directory configuration**
-- **PowerShell automation**
-- **Group Policy administration**
-- **User and access management**
-- **Network and DNS validation**
+Through this project, the following IT competencies were developed and demonstrated:
 
-This project reflects real-world system administration tasks and showcases the ability to design, implement, automate, and manage an enterprise-style Active Directory environment.
+Azure infrastructure deployment
+Active Directory configuration and administration
+PowerShell-based automation
+Group Policy management and security enforcement
+User and access control management
+DNS and network validation
+
+This project reflects real-world system administration practices and demonstrates the ability to design, implement, and manage an enterprise Active Directory environment.
